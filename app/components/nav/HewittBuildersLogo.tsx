@@ -7,12 +7,7 @@ type LogoProps = {
 	height?: string | number | undefined
 }
 
-const HewittBuildersLogo: React.FC<LogoProps> = ({
-	className = "",
-	width,
-	height,
-	...props
-}) => {
+const HewittBuildersLogo: React.FC<LogoProps> = ({ className = "", width, height, ...props }) => {
 	const { t } = useTranslation()
 
 	return (
@@ -26,18 +21,38 @@ const HewittBuildersLogo: React.FC<LogoProps> = ({
 		>
 			<title>{t("pageTitle")}</title>
 			{/* Main "HEWITT" text */}
-			<path className="fill-neutral-900 dark:fill-white" d="M0,0h3.15v14.53h19.05V0h3.15v33.63h-3.15v-16.46H3.15v16.46H0V0Z" />
-			<path className="fill-neutral-900 dark:fill-white" d="M31.37,0h22.86v2.78h-19.71v12.09h18.06v2.73h-18.06v13.12h20.23v2.92h-23.38V0Z" />
+			<path
+				className="fill-neutral-900 dark:fill-white"
+				d="M0,0h3.15v14.53h19.05V0h3.15v33.63h-3.15v-16.46H3.15v16.46H0V0Z"
+			/>
+			<path
+				className="fill-neutral-900 dark:fill-white"
+				d="M31.37,0h22.86v2.78h-19.71v12.09h18.06v2.73h-18.06v13.12h20.23v2.92h-23.38V0Z"
+			/>
 			<path
 				className="fill-neutral-900 dark:fill-white"
 				d="M57.06,0h3.25l5.83,22.67c.66,2.49,1.55,6.63,1.55,6.63h.09s.94-4.05,1.6-6.44L75.54,0h3.39l6.16,22.81c.61,2.4,1.55,6.49,1.55,6.49h.09s.94-4.14,1.55-6.63L94.17,0h3.15l-9.13,33.63h-3.2l-6.4-24.51c-.61-2.12-1.32-5.46-1.32-5.46h-.09s-.71,3.29-1.27,5.46l-6.58,24.51h-3.34L57.06,0Z"
 			/>
 			<path className="fill-neutral-900 dark:fill-white" d="M101.04,0h3.15v33.63h-3.15V0Z" />
-			<path className="fill-neutral-900 dark:fill-white" d="M119.67,2.82h-11.38V0h25.87v2.82h-11.34v30.81h-3.15V2.82Z" />
-			<path className="fill-neutral-900 dark:fill-white" d="M148.03,2.82h-11.38V0h25.87v2.82h-11.34v30.81h-3.15V2.82Z" />
+			<path
+				className="fill-neutral-900 dark:fill-white"
+				d="M119.67,2.82h-11.38V0h25.87v2.82h-11.34v30.81h-3.15V2.82Z"
+			/>
+			<path
+				className="fill-neutral-900 dark:fill-white"
+				d="M148.03,2.82h-11.38V0h25.87v2.82h-11.34v30.81h-3.15V2.82Z"
+			/>
 
 			{/* Dividing line */}
-			<line y1="41.1" x2="162.95" y2="41.1" fill="none" className="stroke-neutral-900 dark:stroke-white" strokeMiterlimit="10" strokeWidth="0.75" />
+			<line
+				y1="41.1"
+				x2="162.95"
+				y2="41.1"
+				fill="none"
+				className="stroke-neutral-900 dark:stroke-white"
+				strokeMiterlimit="10"
+				strokeWidth="0.75"
+			/>
 
 			{/* "BUILDERS" text */}
 			<path
@@ -54,7 +69,10 @@ const HewittBuildersLogo: React.FC<LogoProps> = ({
 				className="fill-neutral-900 dark:fill-white"
 				d="M52.18,48.86h6.92c5.6,0,7.98,4.38,7.98,9.76s-2.57,9.57-8.17,9.57h-6.73v-19.34ZM58.89,67.44c4.68,0,7.3-3.35,7.3-8.82s-2.43-8.98-7.11-8.98h-6.06v17.8h5.87Z"
 			/>
-			<path className="fill-neutral-900 dark:fill-white" d="M70.68,57.81h10.93v.76h-10.93v8.84h12.14v.78h-12.98v-19.34h12.71v.76h-11.87v8.19Z" />
+			<path
+				className="fill-neutral-900 dark:fill-white"
+				d="M70.68,57.81h10.93v.76h-10.93v8.84h12.14v.78h-12.98v-19.34h12.71v.76h-11.87v8.19Z"
+			/>
 			<path
 				className="fill-neutral-900 dark:fill-white"
 				d="M86.42,68.19h-.84v-19.34h7.73c3.57,0,5.68,1.84,5.68,5.14,0,2.52-1.16,4.19-3.62,4.76v.03c2.22.51,3.08,2.11,3.19,4.92.11,3.62.49,4.16.78,4.41v.08h-.92c-.3-.22-.62-.84-.73-4.49-.11-3.16-1.3-4.52-4.38-4.52h-6.9v9.01ZM86.42,58.4h6.6c3.44,0,5.11-1.57,5.11-4.38s-1.7-4.41-4.9-4.41h-6.82v8.79Z"

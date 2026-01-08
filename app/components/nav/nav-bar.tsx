@@ -19,7 +19,7 @@ const NavBar = (): JSX.Element => {
 	const linkToAbout = href("/about")
 	const linkToContactUs = href("/contact")
 
-	const normalizedPathname = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+	const normalizedPathname = pathname.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname
 
 	return (
 		<NavigationMenu className="flex-none pb-4">
@@ -28,7 +28,10 @@ const NavBar = (): JSX.Element => {
 					<NavigationMenuLink
 						active={normalizedPathname === linkToHome}
 						asChild
-						className={cn(navigationMenuTriggerStyle(), normalizedPathname === linkToHome && "bg-accent text-accent-foreground")}
+						className={cn(
+							navigationMenuTriggerStyle(),
+							normalizedPathname === linkToHome && "bg-accent text-accent-foreground"
+						)}
 					>
 						<Link to={linkToHome}>{t("navigation.home_tab")}</Link>
 					</NavigationMenuLink>

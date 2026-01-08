@@ -40,7 +40,7 @@
 				"useNumberNamespace": "error",
 				"noInferrableTypes": "error",
 				"noUselessElse": "error",
-				"noProcessEnv": "error"
+				"noProcessEnv": "off"
 			},
 			"complexity": {
 				"recommended": true

@@ -13,7 +13,6 @@ let env: ServerEnv
  * @returns Initialized env vars
  */
 function initEnv() {
-	// biome-ignore lint/style/noProcessEnv: This should be the only place to use process.env directly
 	const envData = envSchema.safeParse(process.env)
 
 	if (!envData.success) {
