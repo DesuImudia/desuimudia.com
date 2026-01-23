@@ -1,28 +1,30 @@
 {
-	"hi": "React Router is awesome!",
-	"pageTitle": "Hewitt Builders",
-	"pageDescription": "Start your next project with Hewitt Builders today!",
-	"purposeTitle": "Our Purpose",
-	"purposeDescription": "To enhance the construction experience and deliver on the promise that quality matters.",
-	"valuesTitle": "Our Core Values",
+	"hi": "Hi, I'm Desu!",
+	"pageTitle": "Desu Imudia",
+	"pageTagline": "Product Manager in AI. Creative. Community Builder.",
+	"pageDescription": "Product Manager, Creative, and Storyteller building at the intersection of tech, culture, and community.",
+	"purposeTitle": "What I Do",
+	"purposeDescription": "I build thoughtful products, tell culturally curious stories, and create spaces that bring people together both online and offline.",
+	"valuesTitle": "How I Move",
 	"valuesStewardship": {
-		"title": "Stewardship",
-		"description": " in building practices, communications, and team management."
+		"title": "Intentionality",
+		"description": " in how I build products, show up in communities, and choose what deserves my energy."
 	},
 	"valuesIntegrity": {
-		"title": "Integrity",
-		"description": " in the process, the details, and the final product."
+		"title": "Taste + Rigor",
+		"description": " in decision-making, storytelling, and execution. Details matter and so does context"
 	},
 	"valuesQuality": {
-		"title": "Quality",
-		"description": " in the experience, the materials, and the built structure."
+		"title": "Human-Centered",
+		"description": " in design, technology, and experiences. If it does not feel good to use or be part of, it is not done."
 	},
 	"navigation": {
 		"back": "Go back",
 		"home": "Back to home",
 		"home_tab": "Home",
-		"about_tab": "About",
-		"contact_tab": "Contact Us"
+		"about_tab": "About Me",
+		"resume_tab": "Resume",
+		"contact_tab": "Contact"
 	},
 	"error": {
 		"500": {
@@ -48,12 +50,34 @@
 		"system": "System"
 	},
 	"about": {
-		"pageTitle": "About Hewitt Builders",
-		"pageDescription": "Learn more about David Hewitt, the founder of Hewitt Builders, and the rest of our team.",
-		"daveBioBackground": "David Hewitt is a Civil Engineer and licensed general contractor with experience in residential and commercial construction. David graduated from North Carolina State University's College of Engineering. While in college, he started his career in construction as a field engineer for a large construction company, later moving into a project management role. David has project management experience in several market segments, including multifamily homes, healthcare, and municipal.",
-		"daveBioFounderGoal": "As the founder of Hewitt Builders, David wants to restore confidence in the construction process and deliver high-quality projects. His strong work ethic and attention to detail, combined with a keen ability to problem-solve, enable him to set clear expectations and provide high-quality results."
+		"pageTitle": "About Desu",
+		"pageDescription": "Product manager, creative strategist, and community-builder working at the intersection of AI, media, and culture.",
+		"bioBackground": "Desu Imudia is an AI product manager, currently working on AI experiences at BlackRock. She graduated from Columbia University with a degree in Computer Science and has built her career at the intersection of technical rigor and user-centered design. Her work spans product strategy, telemetry, UX collaboration, and applied generative AI.",
+		"bioFounderGoal": "Beyond her day job, Desu is a creator and storyteller. She builds community through curated events, travel, motorsport culture, and media projects, all driven by a love for connection and curiosity. Her goal is to create work and experiences that feel smart, warm, and deeply human."
 	},
 	"contact": {
-		"title": "Let's get to work."
+		"title": "Let's connect!"
+	},
+	"resume": {
+		"pageTitle": "Resume",
+		"pageDescription": "Desu Imudia's professional resume and experience.",
+		"educationTitle": "Education",
+		"columbiaUniversity": "Columbia University, New York, NY",
+		"columbiaLocation": "New York, NY",
+		"columbiaDegree": "Bachelor of Arts in Computer Science",
+		"columbiaSpecialization": "Specialization in Applications and UX Design",
+		"columbiaGraduation": "May 2022",
+		"experienceTitle": "Experience",
+		"blackRock": "BlackRock",
+		"blackRockLocation": "New York, NY",
+		"blackRockAPM": "Associate Product Manager | Aladdin Product - Artificial Intelligence Engineering",
+		"blackRockAPMDates": "February 2025 - Present",
+		"blackRockAPMDescription": "Building AI experiences and products in the Aladdin platform",
+		"blackRockSEA": "Software Engineering Analyst | Aladdin Engineering",
+		"blackRockSEADates": "August 2022 - August 2024",
+		"columbiaDept": "Columbia University Computer Science Department",
+		"columbiaDeptLocation": "New York, NY",
+		"teachingAssistant": "Teaching Assistant",
+		"teachingAssistantDates": "September 2019 - May 2022"
 	}
 }

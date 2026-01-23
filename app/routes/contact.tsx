@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next"
 const PhoneLink = () => {
 	const [isMobile, setIsMobile] = useState(false)
 	const [copied, setCopied] = useState(false)
-	const phoneNumber = "(336) 740-1003"
-	const rawPhoneNumber = "3367401003"
+	const phoneNumber = "(504) 261-8006"
+	const rawPhoneNumber = "5042618006"
 
 	useEffect(() => {
 		setIsMobile(/Mobi|Android/i.test(navigator.userAgent))
@@ -47,16 +47,16 @@ const ContactUsPage = (): JSX.Element => {
 		<div className="flex flex-grow flex-col items-center justify-center">
 			<h1 className="my-8 font-bold text-4xl">{t("contact.title")}</h1>
 			<div className="mx-auto flex max-w-md flex-col items-center">
-				<div>
+				{/* <div>
 					<PhoneLink />
-				</div>
+				</div> */}
 
 				<a
-					href="mailto:desuimudia@gmail.com"
+					href="mailto:desu.business@gmail.com"
 					className="mt-6 flex items-center space-x-2 text-lg leading-7 hover:underline"
 				>
 					<IconMail size={24} />
-					<span>desuimudia@gmail.com</span>
+					<span>desu.business@gmail.com</span>
 				</a>
 
 				<a

@@ -42,13 +42,52 @@ export default function Index() {
 	const linkToContactUs = href("/contact")
 	return (
 		<div className="flex flex-col">
-			<HewittBuildersLogo className="w-full max-w-[400px] self-center pt-6 pb-8" />
+{/* HERO: full viewport */}
+      <section className="min-h-screen w-full">
+				<div className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 text-center">
+					<img
+						src="app/assets/desu_icon_transparent.png"
+						alt="Desu Imudia"
+						className="w-full max-w-3xl h-[400px] object-cover object-center"
+					/>
+
+          {/* Tagline UNDER the title image */}
+					{TypographyP(t("pageTagline"))}
+
+          {/* Buttons */}
+          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
+            {/* Option 1: Scroll down to your sections
+            <Button size={"lg"} onClick={scrollToContent}>
+              Explore
+            </Button> */}
+
+            {/* Option 2: Go to contact page (keep this if you want a separate contact page) */}
+            <Button asChild size={"lg"} variant={"outline"}>
+              <Link to={linkToContactUs}>Contact</Link>
+            </Button>
+          </div>
+
+          {/* Optional little hint
+          <button
+            type="button"
+            onClick={scrollToContent}
+            className="mt-10 text-sm font-medium text-white/80 hover:text-white"
+          >
+            Scroll for more
+          </button> */}
+        </div>
+      </section>
+
+			{/* <HewittBuildersLogo className="w-full max-w-[400px] self-center pt-6 pb-8" /> */}
+      <div id="below-fold" className="scroll-mt-16">
 			<SubSection title={purposeTitle} content={purposeContent} />
 			<SubSection title={valuesTitle} content={TypographyListContent(valuesContent)} />
+
 			<div className="flex justify-center pt-8">
 				<Button asChild size={"lg"}>
 					<Link to={linkToContactUs}>{t("navigation.contact_tab")}</Link>
 				</Button>
+			</div>
 			</div>
 		</div>
 	)

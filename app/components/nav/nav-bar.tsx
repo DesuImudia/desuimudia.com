@@ -17,6 +17,7 @@ const NavBar = (): JSX.Element => {
 	const { pathname } = useLocation()
 	const linkToHome = href("/")
 	const linkToAbout = href("/about")
+	const linkToResume = href("/resume")
 	const linkToContactUs = href("/contact")
 
 	const normalizedPathname = pathname.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname
@@ -46,6 +47,18 @@ const NavBar = (): JSX.Element => {
 						)}
 					>
 						<Link to={linkToAbout}>{t("navigation.about_tab")}</Link>
+					</NavigationMenuLink>
+				</NavigationMenuItem>
+				<NavigationMenuItem>
+					<NavigationMenuLink
+						active={normalizedPathname === linkToResume}
+						asChild
+						className={cn(
+							navigationMenuTriggerStyle(),
+							normalizedPathname === linkToResume && "bg-accent text-accent-foreground"
+						)}
+					>
+						<Link to={linkToResume}>{t("navigation.resume_tab")}</Link>
 					</NavigationMenuLink>
 				</NavigationMenuItem>
 				<NavigationMenuItem>

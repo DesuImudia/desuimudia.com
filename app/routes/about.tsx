@@ -1,6 +1,6 @@
 import type { JSX } from "react"
 import { useTranslation } from "react-i18next"
-import david from "../../public/DavidHewitt.jpg"
+import desu from "../assets/desuimudia.jpg"
 
 export function meta() {
 	const { t } = useTranslation()
@@ -13,9 +13,9 @@ const AboutPage = (): JSX.Element => {
 	return (
 		<div>
 			<div className="mx-auto max-w-4xl text-center">
-				<img src={david} alt="David Hewitt" className="mx-auto h-auto w-full max-w-sm rounded-lg" />
-				<p className="mt-8 text-lg">{t("about.daveBioBackground")}</p>
-				<p className="mt-4 text-lg">{t("about.daveBioFounderGoal")}</p>
+				<img src={desu} alt="Desu Imudia" className="mx-auto h-auto w-full max-w-sm rounded-lg" />
+				<p className="mt-8 text-lg">{t("about.bioBackground")}</p>
+				<p className="mt-4 text-lg">{t("about.bioFounderGoal")}</p>
 			</div>
 		</div>
 	)
