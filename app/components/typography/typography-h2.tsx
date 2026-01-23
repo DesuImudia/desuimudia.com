@@ -1,8 +1,12 @@
-import type { JSX } from "react"
+import type { JSX, ReactNode } from "react"
 
-export function TypographyH2(sectionTitle: string): JSX.Element {
+interface TypographyH2Props {
+	children: ReactNode
+}
+
+export function TypographyH2({ children }: TypographyH2Props): JSX.Element {
 	return (
-		<h2 className="scroll-m-20 border-b pt-8 pb-2 font-semibold text-3xl tracking-tight first:mt-0">{sectionTitle}</h2>
+		<h2 className="scroll-m-20 border-b pt-8 pb-2 font-semibold text-3xl tracking-tight first:mt-0">{children}</h2>
 	)
 }
 

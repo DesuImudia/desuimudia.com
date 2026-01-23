@@ -1,28 +1,30 @@
 {
-	"hi": "¡React Router es increíble!",
-	"pageTitle": "Hewitt Builders",
-	"pageDescription": "¡Comience su próximo proyecto con Hewitt Builders hoy!",
-	"purposeTitle": "Nuestro Propósito",
-	"purposeDescription": "Mejorar la experiencia de construcción y cumplir la promesa de que la calidad importa.",
-	"valuesTitle": "Nuestros Valores Fundamentales",
+	"hi": "¡Hola, soy Desu!",
+	"pageTitle": "Desu Imudia",
+	"pageTagline": "Gerenta de Producto en IA. Creativa. Constructora de Comunidad.",
+	"pageDescription": "Gerenta de Producto, Creativa e Historiadora construyendo en la intersección de la tecnología, la cultura y la comunidad.",
+	"purposeTitle": "Lo que Hago",
+	"purposeDescription": "Construyo productos reflexivos, cuento historias culturalmente curiosas y creo espacios que reúnen a las personas tanto en línea como fuera de línea.",
+	"valuesTitle": "Cómo Me Desenvuelvo",
 	"valuesStewardship": {
-		"title": "Administración",
-		"description": " en las prácticas de construcción, las comunicaciones y la gestión de equipos."
+		"title": "Intencionalidad",
+		"description": " en cómo construyo productos, me presento en comunidades y elijo lo que merece mi energía."
 	},
 	"valuesIntegrity": {
-		"title": "Integridad",
-		"description": " en el proceso, los detalles y el producto final."
+		"title": "Gusto + Rigor",
+		"description": " en la toma de decisiones, la narración de historias y la ejecución. Los detalles importan y el contexto también."
 	},
 	"valuesQuality": {
-		"title": "Calidad",
-		"description": " en la experiencia, los materiales y la estructura construida."
+		"title": "Centrado en lo Humano",
+		"description": " en el diseño, la tecnología y las experiencias. Si no se siente bien usarlo o ser parte de ello, no está hecho."
 	},
 	"navigation": {
-		"back": "Regresar",
+		"back": "Volver",
 		"home": "Volver al inicio",
 		"home_tab": "Inicio",
-		"about_tab": "Acerca de",
-		"contact_tab": "Contáctenos"
+		"about_tab": "Sobre Mí",
+		"resume_tab": "Currículum",
+		"contact_tab": "Contacto"
 	},
 	"error": {
 		"500": {
@@ -48,12 +50,33 @@
 		"system": "Sistema"
 	},
 	"about": {
-		"pageTitle": "Acerca de Hewitt Builders",
-		"pageDescription": "Conozca más sobre David Hewitt, el fundador de Hewitt Builders, y el resto de nuestro equipo.",
-		"daveBioBackground": "David Hewitt es un Ingeniero Civil y contratista general con licencia con experiencia en construcción residencial y comercial. David se graduó de la Facultad de Ingeniería de la Universidad Estatal de Carolina del Norte. Mientras estaba en la universidad, comenzó su carrera en la construcción como ingeniero de campo para una gran empresa de construcción, pasando luego a un rol de gestión de proyectos. David tiene experiencia en gestión de proyectos en varios segmentos del mercado, incluyendo viviendas multifamiliares, atención médica y municipal.",
-		"daveBioFounderGoal": "Como fundador de Hewitt Builders, David quiere restaurar la confianza en el proceso de construcción y entregar proyectos de alta calidad. Su fuerte ética de trabajo y atención al detalle, combinadas con una aguda capacidad para resolver problemas, le permiten establecer expectativas claras y proporcionar resultados de alta calidad."
+		"pageTitle": "Sobre Desu",
+		"pageDescription": "Gerenta de producto, estratega creativa y constructora de comunidades trabajando en la intersección de IA, medios y cultura.",
+		"bioBackground": "Desu Imudia es una gerenta de producto de IA, actualmente trabajando en experiencias de IA en BlackRock. Se graduó de la Universidad de Columbia con una licenciatura en Ciencias de la Computación y ha construido su carrera en la intersección del rigor técnico y el diseño centrado en el usuario. Su trabajo abarca estrategia de producto, telemetría, colaboración UX e IA generativa aplicada.",
+		"bioFounderGoal": "Más allá de su trabajo diario, Desu es una creadora e historiadora. Construye comunidad a través de eventos curados, viajes, cultura de automovilismo y proyectos de medios, todo impulsado por el amor por la conexión y la curiosidad. Su objetivo es crear trabajo y experiencias que se sientan inteligentes, cálidas y profundamente humanas."
 	},
 	"contact": {
-		"title": "¡Manos a la obra!"
+		"title": "¡Conectémonos!"
+	},
+	"resume": {
+		"pageTitle": "Currículum",
+		"pageDescription": "Currículum profesional y experiencia de Desu Imudia.",
+		"educationTitle": "Educación",
+		"columbiaUniversity": "Columbia University, Nueva York, NY",
+		"columbiaLocation": "Nueva York, NY",
+		"columbiaDegree": "Licenciatura en Ciencias de la Computación",
+		"columbiaSpecialization": "Especialización en Aplicaciones y Diseño de UX",
+		"columbiaGraduation": "Mayo 2022",
+		"experienceTitle": "Experiencia",
+		"blackRock": "BlackRock",
+		"blackRockLocation": "Nueva York, NY",
+		"blackRockAPM": "Gerenta Asociada de Producto | Plataforma Aladdin - Ingeniería de Inteligencia Artificial",
+		"blackRockAPMDates": "Febrero 2025 - Presente",
+		"blackRockSEA": "Analista de Ingeniería de Software | Ingeniería Aladdin",
+		"blackRockSEADates": "Agosto 2022 - Agosto 2024",
+		"columbiaDept": "Departamento de Ciencias de la Computación de la Universidad de Columbia",
+		"columbiaDeptLocation": "Nueva York, NY",
+		"teachingAssistant": "Asistente de Enseñanza",
+		"teachingAssistantDates": "Septiembre 2019 - Mayo 2022"
 	}
 }

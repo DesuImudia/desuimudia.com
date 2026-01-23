@@ -2,7 +2,7 @@ import { clsx } from "clsx"
 import { useTranslation } from "react-i18next"
 import type { LinksFunction } from "react-router"
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "react-router"
-import favicon from "../public/favicon.ico"
+import favicon from "./assets/favicon.ico"
 
 import { ThemeProvider, useTheme } from "./components/theme/theme-provider"
 import { LanguageSwitcher } from "./library/language-switcher"
