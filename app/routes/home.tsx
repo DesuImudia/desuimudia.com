@@ -2,7 +2,6 @@ import type { JSX } from "react"
 import { useTranslation } from "react-i18next"
 import { href } from "react-router"
 import desuIcon from "../assets/desu_icon_transparent.png"
-import HewittBuildersLogo from "~/components/nav/HewittBuildersLogo"
 import SubSection from "~/components/sub-section/sub-section"
 import { TypographyListContent, TypographyP } from "~/components/typography/typography-h2"
 import { Button } from "~/components/ui/button"
@@ -79,7 +78,6 @@ export default function Index() {
         </div>
       </section>
 
-			{/* <HewittBuildersLogo className="w-full max-w-[400px] self-center pt-6 pb-8" /> */}
       <div id="below-fold" className="scroll-mt-16">
 			<SubSection title={purposeTitle} content={purposeContent} />
 			<SubSection title={valuesTitle} content={TypographyListContent(valuesContent)} />
