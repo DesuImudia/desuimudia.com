@@ -1,6 +1,7 @@
 import type { JSX } from "react"
 import { useTranslation } from "react-i18next"
 import { href } from "react-router"
+import desuIcon from "../assets/desu_icon_transparent.png"
 import HewittBuildersLogo from "~/components/nav/HewittBuildersLogo"
 import SubSection from "~/components/sub-section/sub-section"
 import { TypographyListContent, TypographyP } from "~/components/typography/typography-h2"
@@ -46,7 +47,7 @@ export default function Index() {
       <section className="min-h-screen w-full">
 				<div className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 text-center">
 					<img
-						src="app/assets/desu_icon_transparent.png"
+						src={desuIcon}
 						alt="Desu Imudia"
 						className="w-full max-w-3xl h-[400px] object-cover object-center"
 					/>
