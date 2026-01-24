@@ -1,7 +1,7 @@
 import type { JSX } from "react"
 import { useTranslation } from "react-i18next"
 import { href } from "react-router"
-import desuIcon from "../assets/desu_icon_transparent.png"
+import desuIcon from "../assets/desutitleicon.png"
 import SubSection from "~/components/sub-section/sub-section"
 import { TypographyListContent, TypographyP } from "~/components/typography/typography-h2"
 import { Button } from "~/components/ui/button"
