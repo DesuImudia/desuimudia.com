@@ -14,7 +14,9 @@
       "Bash(grep -E 't\\\\\\(\\\\`[a-z.]' /Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/routes/home.tsx)",
       "Read(//Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/routes/**)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(gh pr create --title 'Fix dark mode navbar and add manual deploy trigger' --body ' *)"
     ],
     "additionalDirectories": [
       "/tmp",

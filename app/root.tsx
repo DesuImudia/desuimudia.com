@@ -23,7 +23,7 @@ export const handle = {
 export default function App() {
 	const clientEnv = { NODE_ENV: import.meta.env.MODE }
 	return (
-		<ThemeProvider attribute="class" defaultTheme="light">
+		<ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
 			<ThemedLayout clientEnv={clientEnv}>
 				<Outlet />
 			</ThemedLayout>
