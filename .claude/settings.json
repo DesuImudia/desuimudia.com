@@ -15,7 +15,8 @@
       "Read(//Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/routes/**)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(gh pr create --title 'Fix dark mode navbar and add manual deploy trigger' --body ' *)"
     ],
     "additionalDirectories": [
       "/tmp",
