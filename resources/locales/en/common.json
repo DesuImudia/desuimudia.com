@@ -1,83 +1,134 @@
 {
-	"hi": "Hi, I'm Desu!",
-	"pageTitle": "Desu Imudia",
-	"pageTagline": "Product Manager in AI. Creative. Community Builder.",
-	"pageDescription": "Product Manager, Creative, and Storyteller building at the intersection of tech, culture, and community.",
-	"purposeTitle": "What I Do",
-	"purposeDescription": "I build thoughtful products, tell culturally curious stories, and create spaces that bring people together both online and offline.",
-	"valuesTitle": "How I Move",
-	"valuesStewardship": {
-		"title": "Intentionality",
-		"description": " in how I build products, show up in communities, and choose what deserves my energy."
-	},
-	"valuesIntegrity": {
-		"title": "Taste + Rigor",
-		"description": " in decision-making, storytelling, and execution. Details matter and so does context"
-	},
-	"valuesQuality": {
-		"title": "Human-Centered",
-		"description": " in design, technology, and experiences. If it does not feel good to use or be part of, it is not done."
-	},
 	"navigation": {
-		"back": "Go back",
-		"home": "Back to home",
 		"home_tab": "Home",
 		"about_tab": "About Me",
-		"resume_tab": "Resume",
+		"experience_tab": "Experience",
 		"contact_tab": "Contact"
-	},
-	"error": {
-		"500": {
-			"title": "Something went wrong!",
-			"description": "Looks like something unexpected happened on the server."
-		},
-		"404": {
-			"title": "Page Not found!",
-			"description": "Oops! The page you're looking for seems to have vanished into thin air."
-		},
-		"403": {
-			"title": "Unauthorized!",
-			"description": "Looks like you can't access this page."
-		},
-		"200": {
-			"title": "Something went wrong!",
-			"description": "Looks like something unexpected happened on the server."
-		}
 	},
 	"theme": {
 		"light": "Light",
 		"dark": "Dark",
 		"system": "System"
 	},
-	"about": {
-		"pageTitle": "About Desu",
-		"pageDescription": "Product manager, creative strategist, and community-builder working at the intersection of AI, media, and culture.",
-		"bioBackground": "Desu Imudia is an AI product manager, currently working on AI experiences at BlackRock. She graduated from Columbia University with a degree in Computer Science and has built her career at the intersection of technical rigor and user-centered design. Her work spans product strategy, telemetry, UX collaboration, and applied generative AI.",
-		"bioFounderGoal": "Beyond her day job, Desu is a creator and storyteller. She builds community through curated events, travel, motorsport culture, and media projects, all driven by a love for connection and curiosity. Her goal is to create work and experiences that feel smart, warm, and deeply human."
+	"home": {
+		"about": {
+			"headline0": "Product Manager",
+			"headline1": "& Creative",
+			"headline2": "Technologist.",
+			"bio0": "I'm Desu. I build AI products for my 9–5 and spend the rest of my time following curiosity wherever it leads.",
+			"bio1": "At work, I'm a product manager with engineering roots, which means I ask a lot of \"how does this actually work\" questions and care deeply about building things that aren't just impressive, but usable. I spend most of my time turning complex systems into products people can navigate without thinking twice.",
+			"bio2": "Right now, that looks like working on generative AI at enterprise scale, helping shape how people interact with intelligent systems in real workflows.",
+			"bio3": "Outside of that, I'm a self-appointed queen of side quests. I travel a lot, care deeply about film and storytelling, and somehow ended up very invested in motorsport. I like things that feel a little chaotic but still intentional, which is probably how I approach both life and product."
+		},
+		"experience": {
+			"title0": "Work &",
+			"title1": "Education"
+		}
+	},
+	"fridge": {
+		"intro": "Welcome to my fridge.",
+		"introSub": "A running archive of things I've loved, kept, made, and can't quite throw away.",
+		"introSub2": "Click around. Everything here has a story.",
+		"panel": {
+			"insideLabel": "Inside the Fridge"
+		},
+		"category": {
+			"Goals": "Goals",
+			"Music": "Music",
+			"Film": "Film",
+			"Travel": "Travel",
+			"Television": "Television",
+			"Books": "Books",
+			"Life": "Life",
+			"Place": "Place",
+			"Food": "Food",
+			"Reflection": "Reflection",
+			"Sport": "Sport",
+			"Memories": "Memories",
+			"Style": "Style",
+			"People": "People",
+			"Family": "Family"
+		},
+		"magnets": {
+			"calendar-2026": {
+				"name": "2026 Calendar",
+				"description": "Always booked and busy, but if it's not in my gcal, it doesn't exist."
+			},
+			"costa-rica": {
+				"name": "Costa Rica",
+				"description": "One of those trips that quietly changed something in me. Surfing, yoga, pure relaxation."
+			},
+			"cowboy-boots": {
+				"name": "Cowboy Boots",
+				"description": "I collect cowboy boots. And yes, I wear them unironically."
+			},
+			"desu-australia": {
+				"name": "Australia",
+				"description": "Me and my twin, the Crimson Rosella, at Taronga Zoo in Sydney."
+			},
+			"do-it-for-the-plot": {
+				"name": "Do It For The Plot",
+				"description": "My unofficial life policy."
+			},
+			"fleabag": {
+				"name": "Fleabag",
+				"description": "A perfect show."
+			},
+			"guitar-pick": {
+				"name": "Guitar Pick",
+				"description": "Let It Happen - Tame Impala [6:15]"
+			},
+			"iluvny-button": {
+				"name": "I ♥ NY",
+				"description": "Seven years in the Big Apple. Am I a true New Yorker yet?"
+			},
+			"music-sheet": {
+				"name": "Music",
+				"description": "Always on the aux. Always curating a playlist."
+			},
+			"nicole-kidman-amc": {
+				"name": "Nicole Kidman @ AMC",
+				"description": "We come to this place… for magic."
+			},
+			"parents": {
+				"name": "My Parents",
+				"description": "The reason I'm able to do any of this at all."
+			}
+		},
+		"items": {
+			"f1-car": {
+				"name": "F1 Car",
+				"description": "A current obsession that turned into a full-blown personality trait. The Weeyums woes and Ferrari hopium are real (ikyk)."
+			},
+			"fries": {
+				"name": "Fries",
+				"description": "My most consistent craving and honestly my baseline for judging any restaurant with fries on the menu."
+			},
+			"luggage": {
+				"name": "Luggage",
+				"description": "Always either unpacking from my last trip or thinking about the next trip."
+			},
+			"mango": {
+				"name": "Mangoes",
+				"description": "Hands down the best mangoes in the world are grown in my backyard in Florida."
+			},
+			"matcha": {
+				"name": "Matcha",
+				"description": "I don't drink coffee, but I can down a cup of matcha."
+			},
+			"sumo-orange": {
+				"name": "Sumo Orange",
+				"description": "Proof that I will pay extra for joy in citrus form."
+			}
+		}
 	},
 	"contact": {
 		"title": "Let's connect!"
 	},
-	"resume": {
-		"pageTitle": "Resume",
-		"pageDescription": "Desu Imudia's professional resume and experience.",
-		"educationTitle": "Education",
-		"columbiaUniversity": "Columbia University, New York, NY",
-		"columbiaLocation": "New York, NY",
-		"columbiaDegree": "Bachelor of Arts in Computer Science",
-		"columbiaSpecialization": "Specialization in Applications and UX Design",
-		"columbiaGraduation": "May 2022",
-		"experienceTitle": "Experience",
-		"blackRock": "BlackRock",
-		"blackRockLocation": "New York, NY",
-		"blackRockAPM": "Associate Product Manager | Aladdin Product - Artificial Intelligence Engineering",
-		"blackRockAPMDates": "February 2025 - Present",
-		"blackRockAPMDescription": "Building AI experiences and products in the Aladdin platform",
-		"blackRockSEA": "Software Engineering Analyst | Aladdin Engineering",
-		"blackRockSEADates": "August 2022 - August 2024",
-		"columbiaDept": "Columbia University Computer Science Department",
-		"columbiaDeptLocation": "New York, NY",
-		"teachingAssistant": "Teaching Assistant",
-		"teachingAssistantDates": "September 2019 - May 2022"
+	"error": {
+		"200": { "title": "OK", "description": "Nothing to see here." },
+		"403": { "title": "Forbidden", "description": "You don't have access to this page." },
+		"404": { "title": "Page not found", "description": "The page you're looking for doesn't exist." },
+		"500": { "title": "Something went wrong", "description": "An unexpected error occurred." }
 	}
 }

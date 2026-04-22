@@ -1,136 +1,1206 @@
-/** biome-ignore-all lint: pregenerated file*/
+/** biome-ignore-all lint: pregenerated file */
+
+/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
+
 /*---break--- */
 @custom-variant dark (&:is(.dark *));
 
+/* ─── Theme tokens ─────────────────────────────────────────────────────────── */
 @theme {
-	/* Your theme styles go here */
-	--animate-float: float 3s ease-in-out infinite;
+  /* Fonts */
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-sans: "Roboto", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
 
-	@keyframes float {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-10px);
-		}
-	}
+  /* Animations */
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-fade-up: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-marquee: marquee 50s linear infinite;
+  --animate-blink: blink 1.2s step-end infinite;
+  --animate-scale-in: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
 }
+
 /*---break--- */
 @theme inline {
-	--radius-sm: calc(var(--radius) - 4px);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-lg: var(--radius);
-	--radius-xl: calc(var(--radius) + 4px);
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--color-card: var(--card);
-	--color-card-foreground: var(--card-foreground);
-	--color-popover: var(--popover);
-	--color-popover-foreground: var(--popover-foreground);
-	--color-primary: var(--primary);
-	--color-primary-foreground: var(--primary-foreground);
-	--color-secondary: var(--secondary);
-	--color-secondary-foreground: var(--secondary-foreground);
-	--color-muted: var(--muted);
-	--color-muted-foreground: var(--muted-foreground);
-	--color-accent: var(--accent);
-	--color-accent-foreground: var(--accent-foreground);
-	--color-destructive: var(--destructive);
-	--color-border: var(--border);
-	--color-input: var(--input);
-	--color-ring: var(--ring);
-	--color-chart-1: var(--chart-1);
-	--color-chart-2: var(--chart-2);
-	--color-chart-3: var(--chart-3);
-	--color-chart-4: var(--chart-4);
-	--color-chart-5: var(--chart-5);
-	--color-sidebar: var(--sidebar);
-	--color-sidebar-foreground: var(--sidebar-foreground);
-	--color-sidebar-primary: var(--sidebar-primary);
-	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-	--color-sidebar-accent: var(--sidebar-accent);
-	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-	--color-sidebar-border: var(--sidebar-border);
-	--color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background:              var(--background);
+  --color-foreground:              var(--foreground);
+  --color-card:                    var(--card);
+  --color-card-foreground:         var(--card-foreground);
+  --color-popover:                 var(--popover);
+  --color-popover-foreground:      var(--popover-foreground);
+  --color-primary:                 var(--primary);
+  --color-primary-foreground:      var(--primary-foreground);
+  --color-secondary:               var(--secondary);
+  --color-secondary-foreground:    var(--secondary-foreground);
+  --color-muted:                   var(--muted);
+  --color-muted-foreground:        var(--muted-foreground);
+  --color-accent:                  var(--accent);
+  --color-accent-foreground:       var(--accent-foreground);
+  --color-destructive:             var(--destructive);
+  --color-border:                  var(--border);
+  --color-input:                   var(--input);
+  --color-ring:                    var(--ring);
+  /* Brand */
+  --color-gold:                    var(--gold);
+  --color-gold-light:              var(--gold-light);
+  --color-ink:                     var(--ink);
+  --color-paper:                   var(--paper);
+  --color-mist:                    var(--mist);
+  --color-smoke:                   var(--smoke);
+  --color-fog:                     var(--fog);
+  /* Chart / sidebar (kept for shadcn compat) */
+  --color-chart-1:                 var(--chart-1);
+  --color-chart-2:                 var(--chart-2);
+  --color-chart-3:                 var(--chart-3);
+  --color-chart-4:                 var(--chart-4);
+  --color-chart-5:                 var(--chart-5);
+  --color-sidebar:                 var(--sidebar);
+  --color-sidebar-foreground:      var(--sidebar-foreground);
+  --color-sidebar-primary:         var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent:          var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:          var(--sidebar-border);
+  --color-sidebar-ring:            var(--sidebar-ring);
 }
+
 /*---break--- */
+/* ─── Light mode (warm editorial paper + ink) ───────────────────────────────*/
 :root {
-	--radius: 0.625rem;
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.97 0 0);
-	--accent-foreground: oklch(0.205 0 0);
-	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.922 0 0);
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.708 0 0);
-	--chart-1: oklch(0.646 0.222 41.116);
-	--chart-2: oklch(0.6 0.118 184.704);
-	--chart-3: oklch(0.398 0.07 227.392);
-	--chart-4: oklch(0.828 0.189 84.429);
-	--chart-5: oklch(0.769 0.188 70.08);
-	--sidebar: oklch(0.985 0 0);
-	--sidebar-foreground: oklch(0.145 0 0);
-	--sidebar-primary: oklch(0.205 0 0);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.97 0 0);
-	--sidebar-accent-foreground: oklch(0.205 0 0);
-	--sidebar-border: oklch(0.922 0 0);
-	--sidebar-ring: oklch(0.708 0 0);
+  --radius: 0.5rem;
+
+  --background:        oklch(0.975 0.006 80);
+  --foreground:        oklch(0.13  0.010 65);
+  --card:              oklch(1     0     0);
+  --card-foreground:   oklch(0.13  0.010 65);
+  --popover:           oklch(1     0     0);
+  --popover-foreground:oklch(0.13  0.010 65);
+  --primary:           oklch(0.13  0.010 65);
+  --primary-foreground:oklch(0.975 0.006 80);
+  --secondary:         oklch(0.94  0.005 75);
+  --secondary-foreground: oklch(0.13 0.010 65);
+  --muted:             oklch(0.93  0.005 75);
+  --muted-foreground:  oklch(0.50  0.008 65);
+  --accent:            oklch(0.93  0.005 75);
+  --accent-foreground: oklch(0.13  0.010 65);
+  --destructive:       oklch(0.577 0.245 27.325);
+  --border:            oklch(0.87  0.005 75);
+  --input:             oklch(0.87  0.005 75);
+  --ring:              oklch(0.72  0.12  72);
+
+  /* Brand palette */
+  --gold:              #DB8106;
+  --gold-light:        #e89a2a;
+  --crimson:           #91010B;
+  --olive:             #8EAD1B;
+  --forest:            #2A4226;
+  --blush:             #F7DAD3;
+  --ink:               oklch(0.11  0.010 60);
+  --paper:             oklch(0.975 0.006 80);
+  --mist:              oklch(0.52  0.008 65);
+  --smoke:             oklch(0.87  0.005 75);
+  --fog:               oklch(0.93  0.005 75);
+
+  /* Charts / sidebar */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.600 0.118 184.704);
+  --chart-3: oklch(0.398 0.070 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.080);
+  --sidebar:                     oklch(0.97 0.005 75);
+  --sidebar-foreground:          oklch(0.13 0.010 65);
+  --sidebar-primary:             oklch(0.13 0.010 65);
+  --sidebar-primary-foreground:  oklch(0.97 0.005 75);
+  --sidebar-accent:              oklch(0.93 0.005 75);
+  --sidebar-accent-foreground:   oklch(0.13 0.010 65);
+  --sidebar-border:              oklch(0.87 0.005 75);
+  --sidebar-ring:                oklch(0.72 0.12  72);
 }
+
 /*---break--- */
+/* ─── Dark mode (editorial ink + warm white + gold) ────────────────────────*/
 .dark {
-	--background: oklch(0.145 0 0);
-	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.205 0 0);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0 0);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.922 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.269 0 0);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.269 0 0);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
-	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(0.704 0.191 22.216);
-	--border: oklch(1 0 0 / 10%);
-	--input: oklch(1 0 0 / 15%);
-	--ring: oklch(0.556 0 0);
-	--chart-1: oklch(0.488 0.243 264.376);
-	--chart-2: oklch(0.696 0.17 162.48);
-	--chart-3: oklch(0.769 0.188 70.08);
-	--chart-4: oklch(0.627 0.265 303.9);
-	--chart-5: oklch(0.645 0.246 16.439);
-	--sidebar: oklch(0.205 0 0);
-	--sidebar-foreground: oklch(0.985 0 0);
-	--sidebar-primary: oklch(0.488 0.243 264.376);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.269 0 0);
-	--sidebar-accent-foreground: oklch(0.985 0 0);
-	--sidebar-border: oklch(1 0 0 / 10%);
-	--sidebar-ring: oklch(0.556 0 0);
+  --background:        oklch(0.10  0.010 58);
+  --foreground:        oklch(0.95  0.008 78);
+  --card:              oklch(0.14  0.010 58);
+  --card-foreground:   oklch(0.95  0.008 78);
+  --popover:           oklch(0.14  0.010 58);
+  --popover-foreground:oklch(0.95  0.008 78);
+  --primary:           oklch(0.95  0.008 78);
+  --primary-foreground:oklch(0.10  0.010 58);
+  --secondary:         oklch(0.19  0.010 58);
+  --secondary-foreground: oklch(0.95 0.008 78);
+  --muted:             oklch(0.19  0.010 58);
+  --muted-foreground:  oklch(0.58  0.008 68);
+  --accent:            oklch(0.19  0.010 58);
+  --accent-foreground: oklch(0.95  0.008 78);
+  --destructive:       oklch(0.704 0.191 22.216);
+  --border:            oklch(1     0     0 / 8%);
+  --input:             oklch(1     0     0 / 12%);
+  --ring:              oklch(0.72  0.12  72);
+
+  /* Brand palette */
+  --gold:              #DB8106;
+  --gold-light:        #e89a2a;
+  --crimson:           #91010B;
+  --olive:             #8EAD1B;
+  --forest:            #2A4226;
+  --blush:             #F7DAD3;
+  --ink:               oklch(0.10  0.010 58);
+  --paper:             oklch(0.95  0.008 78);
+  --mist:              oklch(0.52  0.008 68);
+  --smoke:             oklch(1     0     0 / 9%);
+  --fog:               oklch(0.17  0.010 58);
+
+  /* Charts / sidebar */
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.170 162.480);
+  --chart-3: oklch(0.769 0.188 70.080);
+  --chart-4: oklch(0.627 0.265 303.900);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar:                     oklch(0.14 0.010 58);
+  --sidebar-foreground:          oklch(0.95 0.008 78);
+  --sidebar-primary:             oklch(0.73 0.13  72);
+  --sidebar-primary-foreground:  oklch(0.10 0.010 58);
+  --sidebar-accent:              oklch(0.19 0.010 58);
+  --sidebar-accent-foreground:   oklch(0.95 0.008 78);
+  --sidebar-border:              oklch(1    0     0 / 8%);
+  --sidebar-ring:                oklch(0.72 0.12  72);
 }
+
 /*---break--- */
 @layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
-	}
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+}
+
+/* ─── Utility layer ────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Font families */
+  .font-display { font-family: var(--font-display); }
+  .font-mono    { font-family: var(--font-mono); }
+
+  /* Scroll-reveal animation (JS adds .visible on intersection) */
+  /* js-reveal is added to <html> by the reveal hooks — only hide elements when JS is running */
+  .js-reveal .reveal, .js-reveal .reveal-item {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .js-reveal .reveal.visible, .js-reveal .reveal-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.10s; }
+  .reveal-delay-2 { transition-delay: 0.20s; }
+  .reveal-delay-3 { transition-delay: 0.30s; }
+  .reveal-delay-4 { transition-delay: 0.45s; }
+  .reveal-delay-5 { transition-delay: 0.60s; }
+
+  /* Gold text */
+  .text-gold { color: var(--gold); }
+  .text-gold-light { color: var(--gold-light); }
+  .text-crimson { color: var(--crimson); }
+  .text-olive { color: var(--olive); }
+  .text-forest { color: var(--forest); }
+  .text-blush { color: var(--blush); }
+
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Thin decorative rule */
+  .rule-gold {
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+  .rule-muted {
+    height: 1px;
+    background: var(--smoke);
+  }
+
+  /* Marquee */
+  .marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee 50s linear infinite;
+  }
+
+  /* Hover card lift */
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px -10px oklch(0 0 0 / 25%);
+  }
+
+  /* Editorial large number */
+  .editorial-number {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* Subtle noise texture (pseudo-element overlay) */
+  .noise {
+    position: relative;
+    isolation: isolate;
+  }
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  /* Tag / badge */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--smoke);
+    color: var(--mist);
+  }
+  .tag-gold {
+    border-color: var(--olive);
+    color: var(--olive);
+  }
+
+  /* Page header spacing */
+  .page-top {
+    padding-top: 7rem;
+  }
+
+  /* Container shorthand */
+  .container-site {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-site {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  /* Line clamp helpers */
+  .clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ─── Fridge page ────────────────────────────────────────────────────────────*/
+
+.fridge-page {
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F4F3ED;
+  overflow: hidden;
+  position: relative;
+  padding: 5rem 0 6rem;
+}
+
+.fridge-wrapper {
+  position: relative;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+/* Shadow as a blurred pseudo-element — keeps filter OFF the 3D container */
+.fridge-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 10% 5% -5%;
+  background: rgba(0, 0, 0, 0.22);
+  filter: blur(40px);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.fridge-wrapper.fridge-shifted {
+  transform: translateX(-16vw);
+}
+
+/* ─── CSS-drawn fridge (fallback / no images) ───────────────────────────────*/
+
+.fridge-body {
+  width: 292px;
+  background: #7ECFC8;
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.13),
+    0 8px 24px rgba(0, 0, 0, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  user-select: none;
+}
+
+.fridge-freezer {
+  height: 128px;
+  background: #68BEBA;
+  border-radius: 10px;
+  position: relative;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.11),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.fridge-section-gap {
+  height: 8px;
+  background: #58AAA5;
+  margin: 0 -14px;
+}
+
+.fridge-main {
+  height: 284px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.fridge-interior {
+  position: absolute;
+  inset: 0;
+  background: #EDE9D9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.fridge-interior.fridge-interior-revealed {
+  opacity: 1;
+}
+
+.fridge-interior-light {
+  width: 70%;
+  height: 10px;
+  background: rgba(255, 255, 210, 0.92);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 6px 28px rgba(255, 255, 160, 0.6);
+  flex-shrink: 0;
+}
+
+.fridge-shelf {
+  position: absolute;
+  bottom: 32%;
+  left: 8%;
+  right: 8%;
+  height: 3px;
+  background: rgba(165, 152, 132, 0.5);
+  border-radius: 2px;
+}
+
+.fridge-door {
+  position: absolute;
+  inset: 0;
+  background: #7ECFC8;
+  border-radius: 10px;
+  cursor: pointer;
+  transform-origin: left center;
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  backface-visibility: hidden;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.22),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.07);
+}
+
+.fridge-door.fridge-door-open {
+  transform: perspective(900px) rotateY(80deg);
+}
+
+.fridge-door::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 7px;
+  pointer-events: none;
+}
+
+.fridge-handle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  background: linear-gradient(90deg, #b4b4b4 0%, #efefef 42%, #dedede 68%, #b4b4b4 100%);
+  border-radius: 3.5px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+}
+
+/* ─── Image-based fridge container ──────────────────────────────────────────*/
+
+.fridge-img-container {
+  width: min(clamp(220px, 24vw, 360px), 44vh);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  perspective: 900px;
+  perspective-origin: 20% 65%;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+/* Top section — shows freezer portion (y=201..1410) from the single full-fridge image.
+   Both sections use the same source image so the fridge body is always aligned.
+   Scale: 4000px source / 1733px body = 230.81% covers container width.
+   bg-position x=51.5% aligns body left edge to container left.
+   bg-position y=7.2% aligns fridge top (y=201) to container top. */
+.fridge-top-wrap {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 4;
+  aspect-ratio: 1733 / 1209;
+  background: url('/fridge/fridge-full-transparent.png') no-repeat;
+  background-size: 230.81% auto;
+  background-position: 48.5% 7.2%;
+  background-color: #F4F3ED; /* fills transparent corners so they don't show interior */
+}
+
+/* Bottom compartment — aspect-ratio from door portion of the same full image (y=1410..3792).
+   bg-position y=87.1% aligns separator row (y=1410) to container top on the door face. */
+.fridge-bottom-section {
+  position: relative;
+  transform-style: preserve-3d;
+  aspect-ratio: 1733 / 2382;
+}
+
+/* Height now set by aspect-ratio on .fridge-bottom-section — sizer no longer rendered */
+
+/* Open interior — always rendered; door physically covers it when closed */
+.fridge-interior-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 46%;
+}
+
+/* The open-fridge background image — fills the layer absolutely */
+.fridge-interior-layer > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  pointer-events: none;
+}
+
+/* 3D door — hinge on left, right side swings OUT toward viewer */
+.fridge-door-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.55, 1);
+}
+
+.fridge-door-3d.fridge-door-open {
+  /* -110deg: past 90° so back face (inside door) becomes visible */
+  transform: rotateY(-110deg);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.fridge-door-face {
+  position: absolute;
+  inset: 0;
+  /* overflow:hidden omitted — it forces a flat context and breaks backface-visibility */
+  backface-visibility: hidden;
+}
+
+.fridge-door-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  pointer-events: none;
+}
+
+/* Front face — door exterior from the same full-fridge image (y=1410..3792 portion).
+   background-color fills transparent corners so interior doesn't peek through. */
+.fridge-door-front {
+  background-color: #F4F3ED;
+  background-image: url('/fridge/fridge-full-transparent.png');
+  background-size: 230.81% auto;
+  background-position: 48.5% 87.1%;
+  background-repeat: no-repeat;
+}
+
+/* Back face — inside of door, shows once door swings past 90° */
+.fridge-door-back {
+  transform: rotateY(180deg);
+}
+
+/* ─── Item on shelf (inside open fridge) ─────────────────────────────────────*/
+
+.fridge-shelf-item {
+  position: relative;
+  z-index: 1;
+  height: 42%;
+  width: auto;
+  max-width: 80%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.fridge-item-img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.fridge-shelf-item[data-item="matcha"],
+.fridge-shelf-item[data-item="sumo-orange"] {
+  transform: scale(0.6);
+  transform-origin: center bottom;
+}
+
+.fridge-item-emoji {
+  font-size: 5rem;
+  line-height: 1;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+}
+
+/* ─── Magnets ────────────────────────────────────────────────────────────────*/
+
+.fridge-magnet-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: default;
+  padding: 0;
+  line-height: 1;
+  --r: 0deg;
+  transform: rotate(var(--r)) scale(1);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.22s ease;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.22));
+  user-select: none;
+  z-index: 3;
+  transform-origin: center center;
+}
+
+.fridge-magnet-clickable {
+  cursor: pointer;
+}
+
+.fridge-magnet-clickable:hover {
+  transform: rotate(var(--r)) scale(1.12);
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.28));
+}
+
+.fridge-magnet-active {
+  transform: rotate(var(--r)) scale(1.2) !important;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.32)) !important;
+}
+
+/* Image magnet sizes — scaled for dense door coverage */
+.fridge-magnet-sm .fridge-magnet-img  { width: clamp(24px, 3vw, 44px);  }
+.fridge-magnet-md .fridge-magnet-img  { width: clamp(34px, 4.5vw, 64px); }
+.fridge-magnet-lg .fridge-magnet-img  { width: clamp(48px, 6.5vw, 96px); }
+
+.fridge-magnet-img {
+  display: block;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Emoji fallback sizes */
+.fridge-magnet-sm { font-size: clamp(1.4rem, 2vw, 2rem);   }
+.fridge-magnet-md { font-size: clamp(1.8rem, 2.8vw, 2.8rem); }
+.fridge-magnet-lg { font-size: clamp(2.4rem, 3.8vw, 3.8rem); }
+
+/* ─── Info panel ─────────────────────────────────────────────────────────────*/
+
+.fridge-panel {
+  position: absolute;
+  left: calc(50% + 20px);
+  top: 50%;
+  transform: translateY(-50%) translateX(20px);
+  width: 280px;
+  opacity: 0;
+  transition: opacity 0.38s ease 0.3s, transform 0.38s ease 0.3s;
+  pointer-events: none;
+}
+
+.fridge-panel.fridge-panel-visible {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: auto;
+}
+
+.fridge-panel-img {
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  object-position: center;
+  margin-bottom: 1.25rem;
+  border-radius: 6px;
+  animation: scaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.fridge-panel-category {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 0.875rem;
+}
+
+.fridge-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.fridge-panel-description {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.75;
+}
+
+/* ─── Fridge container (mirrors container-site, sits over flex layout) ───────*/
+
+.fridge-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  padding-top: 18%;
+  display: flex;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .fridge-container {
+    padding-inline: 1rem;
+    padding-top: 0;
+    align-items: flex-end;
+    padding-bottom: 2rem;
+  }
+}
+
+/* ─── Fridge intro text ──────────────────────────────────────────────────────*/
+
+.fridge-intro {
+  max-width: 240px;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.fridge-intro.fridge-intro-hidden {
+  opacity: 0;
+}
+
+.fridge-intro-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.fridge-intro-body {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--mist);
+  line-height: 1.75;
+}
+
+@media (max-width: 680px) {
+  .fridge-intro {
+    max-width: unset;
+  }
+}
+
+/* Mobile: panel below fridge */
+@media (max-width: 680px) {
+  .fridge-page {
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 0 2rem;
+  }
+
+  .fridge-wrapper.fridge-shifted {
+    transform: none;
+  }
+
+  .fridge-panel {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 2rem;
+    opacity: 0;
+    transition: opacity 0.38s ease 0.2s;
+  }
+
+  .fridge-panel.fridge-panel-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ─── Home page sections ─────────────────────────────────────────────────────*/
+
+.home-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  margin-bottom: 3rem;
+}
+
+/* ── About ───────────────────────────────────────────────────────────────────*/
+
+.home-about {
+  background: #F4F3ED;
+  scroll-margin-top: 4rem;
+  padding: 2.5rem 0 5rem;
+}
+
+/* home-about-inner is just container-site — no separate styles needed */
+
+/* Overline label */
+.home-about-overline {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+/* Big headline block */
+.home-about-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7vw, 7rem);
+  font-weight: 400;
+  line-height: 0.96;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 4rem;
+}
+
+.home-about-headline em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.home-about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .home-about-grid {
+    grid-template-columns: 45% 1fr;
+    gap: 5rem;
+  }
+}
+
+.home-about-photo-slot {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  max-height: 480px;
+}
+
+.home-about-photo-slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.home-about-photo-slot img.photo-active {
+  opacity: 1;
+}
+
+.home-about-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-about-body {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--mist);
+  margin-bottom: 1.25rem;
+}
+
+/* ── Resume body: timeline left, photo right ─────────────────────────────────*/
+
+.home-experience-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: start;
+  border-top: 1px solid var(--smoke);
+}
+
+@media (min-width: 900px) {
+  .home-experience-body {
+    grid-template-columns: 1fr 320px;
+    gap: 5rem;
+    align-items: start;
+  }
+}
+
+.home-experience-photo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+
+.home-experience-photo img {
+  width: 100%;
+  height: auto;
+  max-height: 1400px;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+}
+
+/* ── Experience / Resume ─────────────────────────────────────────────────────*/
+
+.home-experience {
+  padding: 2.5rem 0 5rem;
+  scroll-margin-top: 4rem;
+  background: #F4F3ED;
+}
+
+.home-experience-header {
+  margin-bottom: 3rem;
+}
+
+.home-experience-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.home-experience-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.home-experience-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.home-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-timeline-entry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-block: 2.75rem;
+  border-bottom: 1px solid var(--smoke);
+  transition: background 0.2s ease;
+}
+
+@media (min-width: 680px) {
+  .home-timeline-entry {
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    align-items: start;
+  }
+}
+
+.home-timeline-meta {
+  padding-top: 0.15rem;
+}
+
+.home-timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--mist);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.home-timeline-company {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.home-timeline-role {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.home-timeline-desc {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--mist);
+  max-width: 60ch;
+}
+
+.home-timeline-footnote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}
+
+.home-timeline-footnote-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.home-timeline-footnote-notes {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--mist);
+}
+
+.home-timeline-resume-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.home-timeline-resume-link:hover {
+  opacity: 0.7;
+}
+
+/* ── Contact section ─────────────────────────────────────────────────────────*/
+
+.home-contact {
+  background: #F4F3ED;
+  padding: 2.5rem 0 5rem;
+  scroll-margin-top: 4rem;
+}
+
+.home-contact-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7vw, 7rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 4rem;
+}
+
+.home-contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.home-contact-email {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.home-contact-email-address {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 2.25rem);
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.home-contact-email:hover .home-contact-email-address {
+  color: var(--crimson);
+}
+
+.home-contact-email-hint {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mist);
+  transition: color 0.2s ease;
+}
+
+.home-contact-email:hover .home-contact-email-hint {
+  color: var(--crimson);
+}
+
+.home-contact-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.home-contact-social-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border: 1px solid var(--smoke);
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+  min-width: 140px;
+}
+
+.home-contact-social-link:hover {
+  border-color: var(--crimson);
+}
+
+.home-contact-social-platform {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.home-contact-social-link:hover .home-contact-social-platform {
+  color: var(--crimson);
+}
+
+.home-contact-social-handle {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--mist);
 }

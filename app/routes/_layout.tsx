@@ -3,7 +3,8 @@ import NavBar from "~/components/nav/nav-bar"
 
 export default function PageLayout() {
 	return (
-		<div className="flex min-h-screen flex-col p-6">
+		/* No padding here — NavBar is fixed, pages manage their own top offset */
+		<div className="flex min-h-screen flex-col">
 			<NavBar />
 			<main className="flex flex-grow flex-col">
 				<Outlet />
