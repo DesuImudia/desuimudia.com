@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(awk 'NR>=198 && NR<=215' /Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/tailwind.css)",
+      "Bash(awk 'NR>=212 && NR<=260' /Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/tailwind.css)",
+      "Bash(awk 'NR>=260 && NR<=320' /Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/tailwind.css)",
+      "Bash(awk 'NR>=318 && NR<=330' /Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/tailwind.css)",
+      "Bash(awk 'NR>=330 && NR<=360' /Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/tailwind.css)",
+      "Bash(npx vite *)",
+      "Bash(find /Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app -type f \\\\\\( -name \"*.tsx\" -o -name \"*.ts\" \\\\\\) ! -path \"*/.react-router/*\" -exec grep -l \"t\\(\" {} \\\\;)",
+      "Bash(cat)",
+      "Read(//tmp/**)",
+      "Bash(grep -E 't\\\\\\(\\\\`[a-z.]' /Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/routes/home.tsx)",
+      "Read(//Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/routes/**)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ],
+    "additionalDirectories": [
+      "/tmp",
+      "/Users/desuimudia/Desktop/DEVELOPER/desuimudia.com/app/routes"
+    ]
+  }
+}

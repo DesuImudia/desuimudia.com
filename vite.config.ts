@@ -4,7 +4,6 @@ import { reactRouterDevTools } from "react-router-devtools"
 import { reactRouterHonoServer } from "react-router-hono-server/dev"
 import { defineConfig } from "vite"
 import babel from "vite-plugin-babel"
-import { iconsSpritesheet } from "vite-plugin-icons-spritesheet"
 import tsconfigPaths from "vite-tsconfig-paths"
 
 export default defineConfig(({ mode }) => ({
@@ -30,13 +29,6 @@ export default defineConfig(({ mode }) => ({
 			},
 		}),
 		tsconfigPaths(),
-		iconsSpritesheet({
-			inputDir: "./resources/icons",
-			outputDir: "./app/library/icon/icons",
-			fileName: "icon.svg",
-			withTypes: true,
-			formatter: "biome",
-		}),
 	].filter(Boolean),
 	server: {
 		open: true,

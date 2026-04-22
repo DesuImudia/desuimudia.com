@@ -1,82 +1,128 @@
 {
-	"hi": "¡Hola, soy Desu!",
-	"pageTitle": "Desu Imudia",
-	"pageTagline": "Gerenta de Producto en IA. Creativa. Constructora de Comunidad.",
-	"pageDescription": "Gerenta de Producto, Creativa e Historiadora construyendo en la intersección de la tecnología, la cultura y la comunidad.",
-	"purposeTitle": "Lo que Hago",
-	"purposeDescription": "Construyo productos reflexivos, cuento historias culturalmente curiosas y creo espacios que reúnen a las personas tanto en línea como fuera de línea.",
-	"valuesTitle": "Cómo Me Desenvuelvo",
-	"valuesStewardship": {
-		"title": "Intencionalidad",
-		"description": " en cómo construyo productos, me presento en comunidades y elijo lo que merece mi energía."
-	},
-	"valuesIntegrity": {
-		"title": "Gusto + Rigor",
-		"description": " en la toma de decisiones, la narración de historias y la ejecución. Los detalles importan y el contexto también."
-	},
-	"valuesQuality": {
-		"title": "Centrado en lo Humano",
-		"description": " en el diseño, la tecnología y las experiencias. Si no se siente bien usarlo o ser parte de ello, no está hecho."
-	},
 	"navigation": {
-		"back": "Volver",
-		"home": "Volver al inicio",
 		"home_tab": "Inicio",
-		"about_tab": "Sobre Mí",
-		"resume_tab": "Currículum",
+		"about_tab": "Sobre mí",
+		"experience_tab": "Experiencia",
 		"contact_tab": "Contacto"
-	},
-	"error": {
-		"500": {
-			"title": "¡Algo salió mal!",
-			"description": "Parece que algo inesperado sucedió en el servidor."
-		},
-		"404": {
-			"title": "¡Página no encontrada!",
-			"description": "¡Ups! La página que buscas parece haberse desvanecido en el aire."
-		},
-		"403": {
-			"title": "¡No autorizado!",
-			"description": "Parece que no puedes acceder a esta página."
-		},
-		"200": {
-			"title": "¡Algo salió mal!",
-			"description": "Parece que algo inesperado sucedió en el servidor."
-		}
 	},
 	"theme": {
 		"light": "Claro",
 		"dark": "Oscuro",
 		"system": "Sistema"
 	},
-	"about": {
-		"pageTitle": "Sobre Desu",
-		"pageDescription": "Gerenta de producto, estratega creativa y constructora de comunidades trabajando en la intersección de IA, medios y cultura.",
-		"bioBackground": "Desu Imudia es una gerenta de producto de IA, actualmente trabajando en experiencias de IA en BlackRock. Se graduó de la Universidad de Columbia con una licenciatura en Ciencias de la Computación y ha construido su carrera en la intersección del rigor técnico y el diseño centrado en el usuario. Su trabajo abarca estrategia de producto, telemetría, colaboración UX e IA generativa aplicada.",
-		"bioFounderGoal": "Más allá de su trabajo diario, Desu es una creadora e historiadora. Construye comunidad a través de eventos curados, viajes, cultura de automovilismo y proyectos de medios, todo impulsado por el amor por la conexión y la curiosidad. Su objetivo es crear trabajo y experiencias que se sientan inteligentes, cálidas y profundamente humanas."
+	"home": {
+		"about": {
+			"headline0": "Product Manager",
+			"headline1": "y Tecnóloga",
+			"headline2": "Creativa.",
+			"bio0": "Soy Desu. Construyo productos de IA en mi trabajo de 9 a 5 y el resto del tiempo lo paso siguiendo la curiosidad adonde me lleve.",
+			"bio1": "En el trabajo, soy product manager con raíces en ingeniería, lo que significa que hago muchas preguntas de \"¿cómo funciona esto realmente?\" y me importa profundamente construir cosas que no solo sean impresionantes, sino utilizables. La mayor parte de mi tiempo lo paso convirtiendo sistemas complejos en productos que la gente puede usar sin pensarlo dos veces.",
+			"bio2": "Ahora mismo, eso significa trabajar en IA generativa a escala empresarial, ayudando a definir cómo las personas interactúan con sistemas inteligentes en flujos de trabajo reales.",
+			"bio3": "Fuera de eso, soy una autoproclamada reina de las aventuras secundarias. Viajo mucho, me importan profundamente el cine y la narrativa, y de alguna manera terminé muy invertida en el automovilismo. Me gustan las cosas que se sienten un poco caóticas pero aún intencionales, que es probablemente como me acerco tanto a la vida como al producto."
+		},
+		"work": {
+			"0": {
+				"description": "Tomé el control de un piloto fragmentado de IA generativa y lo escalé a una capacidad coordinada desplegada en más de 20 aplicaciones de Aladdin, permitiendo a los usuarios obtener respuestas de la plataforma y extraer datos contextuales bajo demanda."
+			},
+			"1": {
+				"description": "Roté por tres áreas de producto de Aladdin — Sostenibilidad, Supervisión de Riesgo e Inversiones, y Trading — construyendo funcionalidades de producción utilizadas por gestores de cartera, analistas de riesgo y equipos de trading."
+			}
+		},
+		"experience": {
+			"title0": "Trabajo y",
+			"title1": "Educación"
+		}
+	},
+	"fridge": {
+		"intro": "Bienvenido a mi refrigerador.",
+		"introSub": "Un archivo de las cosas que he amado, guardado, creado y no puedo desechar del todo.",
+		"introSub2": "Haz clic en todo. Cada cosa tiene una historia.",
+		"panel": {
+			"insideLabel": "Dentro del Refrigerador"
+		},
+		"category": {
+			"Goals": "Metas",
+			"Music": "Música",
+			"Film": "Cine",
+			"Travel": "Viajes",
+			"Television": "Televisión",
+			"Books": "Libros",
+			"Life": "Vida",
+			"Place": "Lugar",
+			"Food": "Comida",
+			"Reflection": "Reflexión",
+			"Sport": "Deporte",
+			"Memories": "Recuerdos",
+			"Style": "Estilo",
+			"People": "Personas",
+			"Family": "Familia"
+		},
+		"magnets": {
+			"nicole-kidman-amc": {
+				"description": "Las películas son mejores así. Ella tiene razón."
+			},
+			"fleabag": {
+				"description": "Phoebe Waller-Bridge es un genio. El final de la temporada 2 me destrozó."
+			},
+			"mockingjay-pin": {
+				"description": "Los Juegos del Hambre me metieron en la lectura. Katniss merecía algo mejor."
+			},
+			"costa-rica": {
+				"description": "Llegué a Costa Rica en 2024. La biodiversidad no tiene comparación."
+			},
+			"do-it-for-the-plot": {
+				"description": "La única regla por la que vivo."
+			},
+			"metrocard": {
+				"description": "El MTA y yo tenemos una relación complicada."
+			},
+			"iluvny-button": {
+				"description": "Nueva York cambió cómo veo las ciudades. Todavía estoy trabajando en mi relación con ella."
+			},
+			"good-times-tickets": {
+				"description": "Primera fila. Una de las mejores noches de mi vida."
+			},
+			"f1-watch-party": {
+				"description": "Nuestras carreras desde el sofá. Sistema de penalizaciones completo en vigor."
+			},
+			"parents": {
+				"description": "Se mudaron de país para que yo tuviera opciones. Pienso en eso todos los días."
+			}
+		},
+		"items": {
+			"sumo-orange": {
+				"name": "Naranja Sumo",
+				"description": "Sí, las guardo en el refrigerador. Sí, están mejor frías."
+			},
+			"matcha": {
+				"name": "Matcha",
+				"description": "Grado ceremonial, leche de avena, sin endulzante. El ritual de la tarde."
+			},
+			"fries": {
+				"name": "Papas Fritas Sobrantes",
+				"description": "Las papas frías están subestimadas. Moriré en esta colina."
+			},
+			"luggage": {
+				"name": "Maleta de Mano",
+				"description": "Siempre lista. Próximo destino: Tokio."
+			},
+			"mango": {
+				"name": "Mango Ataulfo",
+				"description": "El mango correcto. No los rojos — los pequeños amarillos."
+			},
+			"f1-car": {
+				"name": "Williams FW45",
+				"description": "Una maqueta del Williams FW45. Sigo esperando que vuelvan a ser grandes."
+			}
+		}
 	},
 	"contact": {
 		"title": "¡Conectémonos!"
 	},
-	"resume": {
-		"pageTitle": "Currículum",
-		"pageDescription": "Currículum profesional y experiencia de Desu Imudia.",
-		"educationTitle": "Educación",
-		"columbiaUniversity": "Columbia University, Nueva York, NY",
-		"columbiaLocation": "Nueva York, NY",
-		"columbiaDegree": "Licenciatura en Ciencias de la Computación",
-		"columbiaSpecialization": "Especialización en Aplicaciones y Diseño de UX",
-		"columbiaGraduation": "Mayo 2022",
-		"experienceTitle": "Experiencia",
-		"blackRock": "BlackRock",
-		"blackRockLocation": "Nueva York, NY",
-		"blackRockAPM": "Gerenta Asociada de Producto | Plataforma Aladdin - Ingeniería de Inteligencia Artificial",
-		"blackRockAPMDates": "Febrero 2025 - Presente",
-		"blackRockSEA": "Analista de Ingeniería de Software | Ingeniería Aladdin",
-		"blackRockSEADates": "Agosto 2022 - Agosto 2024",
-		"columbiaDept": "Departamento de Ciencias de la Computación de la Universidad de Columbia",
-		"columbiaDeptLocation": "Nueva York, NY",
-		"teachingAssistant": "Asistente de Enseñanza",
-		"teachingAssistantDates": "Septiembre 2019 - Mayo 2022"
+	"error": {
+		"200": { "title": "OK", "description": "Nada que ver aquí." },
+		"403": { "title": "Prohibido", "description": "No tienes acceso a esta página." },
+		"404": { "title": "Página no encontrada", "description": "La página que buscas no existe." },
+		"500": { "title": "Algo salió mal", "description": "Ocurrió un error inesperado." }
 	}
 }
