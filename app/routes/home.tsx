@@ -9,6 +9,14 @@ import desuPhoto2 from "~/assets/desuimudia-2.png"
 import desuPhotoExperience from "~/assets/desuimudia.png"
 import { useScrollReveal, useWaterfallReveal } from "~/hooks/useScrollReveal"
 
+export function links() {
+	return [
+		{ rel: "preload", href: "/fridge/fridge-full-transparent.webp", as: "image" },
+		{ rel: "preload", href: "/fridge/fridge-open.webp", as: "image" },
+		{ rel: "preload", href: "/fridge/fridge-inside-door-open.webp", as: "image" },
+	]
+}
+
 export function meta() {
 	return [
 		{ title: "Desu Imudia" },
@@ -17,29 +25,29 @@ export function meta() {
 }
 
 const MAGNET_IMAGES: Record<string, string> = {
-	"calendar-2026":       "/fridge/magnets/calendar 2026.jpeg",
-	"chilis":              "/fridge/magnets/chilis.png",
-	"costa-rica":          "/fridge/magnets/costa-rica-sticker.png",
-	"cowboy-boots":        "/fridge/magnets/cowboy-boots.png",
-	"delroy-lindo":        "/fridge/magnets/delroy-lindo.jpeg",
-	"desu-australia":      "/fridge/magnets/desu-in-austrailia.jpeg",
-	"desu-racetrack":      "/fridge/magnets/desu-racetrack.jpeg",
-	"desu-sports":         "/fridge/magnets/desu-sports.jpeg",
-	"do-it-for-the-plot":  "/fridge/magnets/do-it-for-the-plot.jpeg",
-	"f1-watch-party":      "/fridge/magnets/f1-watch-party.png",
-	"fleabag":             "/fridge/magnets/fleabag-poster.jpeg",
-	"friends-coffee-chat": "/fridge/magnets/friends-coffee-chat.jpeg",
-	"good-times-tickets":  "/fridge/magnets/good-times-tickets.png",
-	"guitar-pick":         "/fridge/magnets/guitar-pick.png",
-	"iluvny-button":       "/fridge/magnets/iluvny-button.png",
-	"march-note-to-self":  "/fridge/magnets/march-note-to-self.jpeg",
-	"metrocard":           "/fridge/magnets/metrocard.png",
-	"mockingjay-pin":      "/fridge/magnets/mockingjay-pin.png",
-	"music-sheet":         "/fridge/magnets/music-sheet.jpeg",
-	"nicole-kidman-amc":   "/fridge/magnets/nicole-kidman-amc.png",
-	"parents":             "/fridge/magnets/parents.jpeg",
-	"photo-booth":         "/fridge/magnets/photo-booth.png",
-	"roomies":             "/fridge/magnets/roomies.jpeg",
+	"calendar-2026":       "/fridge/magnets/calendar 2026.webp",
+	"chilis":              "/fridge/magnets/chilis.webp",
+	"costa-rica":          "/fridge/magnets/costa-rica-sticker.webp",
+	"cowboy-boots":        "/fridge/magnets/cowboy-boots.webp",
+	"delroy-lindo":        "/fridge/magnets/delroy-lindo.webp",
+	"desu-australia":      "/fridge/magnets/desu-in-austrailia.webp",
+	"desu-racetrack":      "/fridge/magnets/desu-racetrack.webp",
+	"desu-sports":         "/fridge/magnets/desu-sports.webp",
+	"do-it-for-the-plot":  "/fridge/magnets/do-it-for-the-plot.webp",
+	"f1-watch-party":      "/fridge/magnets/f1-watch-party.webp",
+	"fleabag":             "/fridge/magnets/fleabag-poster.webp",
+	"friends-coffee-chat": "/fridge/magnets/friends-coffee-chat.webp",
+	"good-times-tickets":  "/fridge/magnets/good-times-tickets.webp",
+	"guitar-pick":         "/fridge/magnets/guitar-pick.webp",
+	"iluvny-button":       "/fridge/magnets/iluvny-button.webp",
+	"march-note-to-self":  "/fridge/magnets/march-note-to-self.webp",
+	"metrocard":           "/fridge/magnets/metrocard.webp",
+	"mockingjay-pin":      "/fridge/magnets/mockingjay-pin.webp",
+	"music-sheet":         "/fridge/magnets/music-sheet.webp",
+	"nicole-kidman-amc":   "/fridge/magnets/nicole-kidman-amc.webp",
+	"parents":             "/fridge/magnets/parents.webp",
+	"photo-booth":         "/fridge/magnets/photo-booth.webp",
+	"roomies":             "/fridge/magnets/roomies.webp",
 }
 
 const ITEM_IMAGES: Record<string, string> = {
@@ -51,9 +59,8 @@ const ITEM_IMAGES: Record<string, string> = {
 	"sumo-orange": "/fridge/inside/sumo-orange.png",
 }
 
-const FRIDGE_FULL        = "/fridge/fridge-full-transparent.png"
-const FRIDGE_INSIDE_DOOR = "/fridge/fridge-inside-door-open.png"
-const FRIDGE_OPEN        = "/fridge/fridge-open.png"
+const FRIDGE_INSIDE_DOOR = "/fridge/fridge-inside-door-open.webp"
+const FRIDGE_OPEN        = "/fridge/fridge-open.webp"
 
 export default function Home() {
 	const { t } = useTranslation()
@@ -61,22 +68,12 @@ export default function Home() {
 	const [fridgeOpen, setFridgeOpen]       = useState(false)
 	const [activeItem, setActiveItem]       = useState<FridgeItem | null>(null)
 	const [panelReady, setPanelReady]       = useState(false)
-	const [useRealFridge, setUseRealFridge] = useState(false)
-
 	const isPanelOpen = activeMagnet !== null || (fridgeOpen && activeItem !== null)
 	const [activePhoto, setActivePhoto] = useState(0)
 
 	useEffect(() => {
 		const interval = setInterval(() => setActivePhoto((p) => (p === 0 ? 1 : 0)), 1000)
 		return () => clearInterval(interval)
-	}, [])
-
-	/* Detect whether the real fridge images exist */
-	useEffect(() => {
-		const img = new Image()
-		img.onload  = () => setUseRealFridge(true)
-		img.onerror = () => setUseRealFridge(false)
-		img.src = FRIDGE_FULL
 	}, [])
 
 	useEffect(() => {
@@ -151,81 +148,37 @@ export default function Home() {
 			<div id="home" className="fridge-page" onClick={handleClose}>
 				<div className={`fridge-wrapper ${isPanelOpen ? "fridge-shifted" : ""}`}>
 
-					{useRealFridge ? (
-						<div className="fridge-img-container" onClick={(e) => e.stopPropagation()}>
-							<div className="fridge-top-wrap">
-								<Magnets
-									magnets={topMagnets}
-									activeMagnet={activeMagnet}
-									magnetImages={MAGNET_IMAGES}
-									onMagnetClick={handleMagnetClick}
-								/>
-							</div>
-
-							<div className="fridge-bottom-section">
-								<div className="fridge-interior-layer">
-									<img src={FRIDGE_OPEN} alt="Fridge interior" draggable={false} />
-									{activeItem && (
-										<div className="fridge-shelf-item" data-item={activeItem.id} onClick={handleFridgeClick}>
-											{ITEM_IMAGES[activeItem.id] && (
-												<img src={ITEM_IMAGES[activeItem.id]} alt={activeItem.name} className="fridge-item-img" draggable={false} />
-											)}
-										</div>
-									)}
-								</div>
-
-								<div
-									className={`fridge-door-3d ${fridgeOpen ? "fridge-door-open" : ""}`}
-									onClick={handleFridgeClick}
-									role="button"
-									tabIndex={0}
-									aria-label={fridgeOpen ? "Close fridge" : "Open fridge"}
-									onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleFridgeClick(e as unknown as React.MouseEvent) }}
-								>
-									<div className="fridge-door-face fridge-door-front">
-										<Magnets
-											magnets={doorMagnets}
-											activeMagnet={activeMagnet}
-											magnetImages={MAGNET_IMAGES}
-											onMagnetClick={handleMagnetClick}
-										/>
-									</div>
-									<div className="fridge-door-face fridge-door-back">
-										<img src={FRIDGE_INSIDE_DOOR} alt="Inside door" draggable={false} />
-									</div>
-								</div>
-							</div>
+					<div className="fridge-img-container" onClick={(e) => e.stopPropagation()}>
+						<div className="fridge-top-wrap">
+							<Magnets
+								magnets={topMagnets}
+								activeMagnet={activeMagnet}
+								magnetImages={MAGNET_IMAGES}
+								onMagnetClick={handleMagnetClick}
+							/>
 						</div>
 
-					) : (
-						<div className="fridge-body" onClick={(e) => e.stopPropagation()}>
-							<div className="fridge-freezer">
-								<div className="fridge-handle" style={{ height: "52px" }} />
+						<div className="fridge-bottom-section">
+							<div className="fridge-interior-layer">
+								<img src={FRIDGE_OPEN} alt="Fridge interior" draggable={false} />
+								{activeItem && (
+									<div className="fridge-shelf-item" data-item={activeItem.id} onClick={handleFridgeClick}>
+										{ITEM_IMAGES[activeItem.id] && (
+											<img src={ITEM_IMAGES[activeItem.id]} alt={activeItem.name} className="fridge-item-img" draggable={false} />
+										)}
+									</div>
+								)}
 							</div>
-							<div className="fridge-section-gap" />
-							<div className="fridge-main">
-								<div className={`fridge-interior ${fridgeOpen ? "fridge-interior-revealed" : ""}`}>
-									<div className="fridge-interior-light" />
-									{activeItem && fridgeOpen && (
-										<div className="fridge-shelf-item" onClick={handleFridgeClick}>
-											{ITEM_IMAGES[activeItem.id] && (
-												<img src={ITEM_IMAGES[activeItem.id]} alt={activeItem.name} className="fridge-item-img" draggable={false} />
-											)}
-										</div>
-									)}
-									<div className="fridge-shelf" />
-								</div>
-								<div
-									className={`fridge-door ${fridgeOpen ? "fridge-door-open" : ""}`}
-									onClick={handleFridgeClick}
-									role="button"
-									tabIndex={0}
-									aria-label={fridgeOpen ? "Close fridge" : "Open fridge"}
-									onKeyDown={(e) => {
-										if (e.key === "Enter" || e.key === " ") handleFridgeClick(e as unknown as React.MouseEvent)
-									}}
-								>
-									<div className="fridge-handle" style={{ height: "72px" }} />
+
+							<div
+								className={`fridge-door-3d ${fridgeOpen ? "fridge-door-open" : ""}`}
+								onClick={handleFridgeClick}
+								role="button"
+								tabIndex={0}
+								aria-label={fridgeOpen ? "Close fridge" : "Open fridge"}
+								onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleFridgeClick(e as unknown as React.MouseEvent) }}
+							>
+								<div className="fridge-door-face fridge-door-front">
 									<Magnets
 										magnets={doorMagnets}
 										activeMagnet={activeMagnet}
@@ -233,9 +186,12 @@ export default function Home() {
 										onMagnetClick={handleMagnetClick}
 									/>
 								</div>
+								<div className="fridge-door-face fridge-door-back">
+									<img src={FRIDGE_INSIDE_DOOR} alt="Inside door" draggable={false} />
+								</div>
 							</div>
 						</div>
-					)}
+					</div>
 				</div>
 
 				<div className="fridge-container">
@@ -273,9 +229,16 @@ export default function Home() {
 							<img src={desuPhoto2} alt="Desu Imudia" draggable={false} className={activePhoto === 1 ? "photo-active" : ""} />
 						</div>
 						<div className="home-about-text-col">
-							{(["bio0", "bio1", "bio2", "bio3"] as const).map((key) => (
-								<p key={key} className="home-about-body reveal-item">{t(`home.about.${key}`)}</p>
-							))}
+							<p className="home-about-body reveal-item">{t("home.about.bio0")}</p>
+							<p className="home-about-body reveal-item">
+								At work, I'm a <span className="home-about-highlight-olive">product manager</span> with <span className="home-about-highlight-olive">engineering roots</span>, which means I ask a lot of "how does this actually work" questions and care deeply about building things that aren't just impressive, but usable. I spend most of my time turning complex systems into products people can navigate without thinking twice.
+							</p>
+							<p className="home-about-body reveal-item">
+								Right now, that looks like working on <span className="home-about-highlight-gold">generative AI</span> at enterprise scale, helping shape how people interact with intelligent systems in real workflows.
+							</p>
+							<p className="home-about-body reveal-item">
+								Outside of that, I'm a self-appointed <span className="home-about-highlight-crimson">queen of side quests</span>. I <span className="home-about-highlight-crimson">travel</span> a lot, care deeply about <span className="home-about-highlight-crimson">film</span> and storytelling, and somehow ended up very invested in <span className="home-about-highlight-crimson">motorsport</span>. I like things that feel a little chaotic but still intentional, which is probably how I approach both life and product.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -304,7 +267,7 @@ export default function Home() {
 							))}
 
 							<div className="home-timeline-footnote reveal-item">
-								<span className="home-timeline-footnote-label">{education[0].school} · {education[0].period}</span>
+								<span className="home-timeline-footnote-label">{education[0].school} · <span style={{ color: "var(--mist)" }}>{education[0].period}</span></span>
 								<span className="home-timeline-footnote-notes">{education[0].degree} · {education[0].field}</span>
 								{/* <a href={profile.resumeUrl} download className="home-timeline-resume-link">↓ Download Resume</a> */}
 							</div>
