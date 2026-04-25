@@ -4,14 +4,11 @@ import type { LinksFunction } from "react-router"
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "react-router"
 import favicon from "./assets/favicon.png"
 
-import { ThemeProvider, useTheme } from "next-themes"
 import { ClientHintCheck } from "./services/client-hints"
 import tailwindcss from "./tailwind.css?url"
 
 export const links: LinksFunction = () => [
 	/* Google Fonts preconnect for performance */
-	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
-	{ rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
 	{ rel: "stylesheet", href: tailwindcss },
 	{ rel: "icon", href: favicon, type: "image/png" },
 ]
@@ -23,25 +20,22 @@ export const handle = {
 export default function App() {
 	const clientEnv = { NODE_ENV: import.meta.env.MODE }
 	return (
-		<ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-			<ThemedLayout clientEnv={clientEnv}>
-				<Outlet />
-			</ThemedLayout>
-		</ThemeProvider>
+		<ThemedLayout clientEnv={clientEnv}>
+			<Outlet />
+		</ThemedLayout>
 	)
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: Temporary for theme toggling
 export function ThemedLayout({ children, clientEnv }: { children: React.ReactNode; clientEnv: any }) {
 	const { i18n } = useTranslation()
-	const { resolvedTheme } = useTheme()
 	return (
 		<html
 			suppressHydrationWarning
-			className={clsx("overflow-y-auto overflow-x-hidden", resolvedTheme)}
+			className={clsx("overflow-y-auto overflow-x-hidden", "light")}
 			lang={i18n.language}
 			dir={i18n.dir()}
-			style={{ colorScheme: resolvedTheme }}
+			style={{ colorScheme: "light" }}
 		>
 			<head>
 				<ClientHintCheck />

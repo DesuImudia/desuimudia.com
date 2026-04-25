@@ -14,9 +14,9 @@ export default function NavBar() {
 	const [menuOpen, setMenuOpen] = useState(false)
 
 	const ANCHOR_LINKS = [
-		{ label: t("navigation.about_tab"), hash: "about" },
-		{ label: t("navigation.experience_tab"), hash: "experience" },
-		{ label: t("navigation.contact_tab"), hash: "contact" },
+		{ label: t("navigation.about_tab"), hash: "about", accent: "var(--olive)" },
+		{ label: t("navigation.experience_tab"), hash: "experience", accent: "var(--blush)" },
+		{ label: t("navigation.contact_tab"), hash: "contact", accent: "var(--crimson)" },
 	]
 
 	useEffect(() => {
@@ -58,12 +58,14 @@ export default function NavBar() {
 
 						{/* Desktop nav */}
 						<nav className="hidden md:flex items-center gap-8">
-							{ANCHOR_LINKS.map(({ label, hash }) => (
+							{ANCHOR_LINKS.map(({ label, hash, accent }) => (
 								<button
 									key={hash}
 									type="button"
 									onClick={() => scrollToSection(hash)}
-									className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors"
+									className="font-sans text-sm text-muted-foreground transition-colors"
+									onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = accent }}
+									onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "" }}
 								>
 									{label}
 								</button>

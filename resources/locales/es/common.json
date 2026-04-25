@@ -58,61 +58,75 @@
 			"Family": "Familia"
 		},
 		"magnets": {
-			"nicole-kidman-amc": {
-				"description": "Las películas son mejores así. Ella tiene razón."
-			},
-			"fleabag": {
-				"description": "Phoebe Waller-Bridge es un genio. El final de la temporada 2 me destrozó."
-			},
-			"mockingjay-pin": {
-				"description": "Los Juegos del Hambre me metieron en la lectura. Katniss merecía algo mejor."
+			"calendar-2026": {
+				"name": "Calendario 2026",
+				"description": "Siempre ocupada y con agenda llena, pero si no está en mi gcal, no existe."
 			},
 			"costa-rica": {
-				"description": "Llegué a Costa Rica en 2024. La biodiversidad no tiene comparación."
+				"name": "Costa Rica",
+				"description": "Uno de esos viajes que silenciosamente cambió algo en mí. Surf, yoga, pura vida."
+			},
+			"cowboy-boots": {
+				"name": "Botas Vaqueras",
+				"description": "Colecciono botas vaqueras. Y sí, las uso sin ironía."
+			},
+			"desu-australia": {
+				"name": "Australia",
+				"description": "Yo y mi gemela, el Rosella Carmesí, en el Zoológico Taronga en Sídney."
 			},
 			"do-it-for-the-plot": {
+				"name": "Hazlo Por La Trama",
 				"description": "La única regla por la que vivo."
 			},
-			"metrocard": {
-				"description": "El MTA y yo tenemos una relación complicada."
+			"fleabag": {
+				"name": "Fleabag",
+				"description": "Una serie perfecta."
+			},
+			"guitar-pick": {
+				"name": "Púa de Guitarra",
+				"description": "Let It Happen - Tame Impala [6:15]"
 			},
 			"iluvny-button": {
-				"description": "Nueva York cambió cómo veo las ciudades. Todavía estoy trabajando en mi relación con ella."
+				"name": "I ♥ NY",
+				"description": "Siete años en la Gran Manzana. ¿Ya soy una verdadera neoyorquina?"
 			},
-			"good-times-tickets": {
-				"description": "Primera fila. Una de las mejores noches de mi vida."
+			"music-sheet": {
+				"name": "Música",
+				"description": "Siempre en el aux. Siempre curando una playlist."
 			},
-			"f1-watch-party": {
-				"description": "Nuestras carreras desde el sofá. Sistema de penalizaciones completo en vigor."
+			"nicole-kidman-amc": {
+				"name": "Nicole Kidman × AMC",
+				"description": "Venimos a este lugar… por la magia."
 			},
 			"parents": {
-				"description": "Se mudaron de país para que yo tuviera opciones. Pienso en eso todos los días."
+				"name": "Mis Padres",
+				"description": "La razón por la que puedo hacer todo esto."
 			}
 		},
 		"items": {
 			"sumo-orange": {
 				"name": "Naranja Sumo",
-				"description": "Sí, las guardo en el refrigerador. Sí, están mejor frías."
+				"description": "Prueba de que pagaré más por alegría en forma de cítrico."
 			},
 			"matcha": {
 				"name": "Matcha",
-				"description": "Grado ceremonial, leche de avena, sin endulzante. El ritual de la tarde."
+				"description": "No tomo café, pero me puedo tomar una taza de matcha."
 			},
 			"fries": {
-				"name": "Papas Fritas Sobrantes",
-				"description": "Las papas frías están subestimadas. Moriré en esta colina."
+				"name": "Papas Fritas",
+				"description": "Mi antojo más constante y, honestamente, mi referencia para juzgar cualquier restaurante que tenga papas fritas en el menú."
 			},
 			"luggage": {
-				"name": "Maleta de Mano",
-				"description": "Siempre lista. Próximo destino: Tokio."
+				"name": "Equipaje",
+				"description": "Siempre desempacando del último viaje o pensando en el próximo."
 			},
 			"mango": {
-				"name": "Mango Ataulfo",
-				"description": "El mango correcto. No los rojos — los pequeños amarillos."
+				"name": "Mangos",
+				"description": "Sin duda, los mejores mangos del mundo crecen en mi jardín en Florida."
 			},
 			"f1-car": {
-				"name": "Williams FW45",
-				"description": "Una maqueta del Williams FW45. Sigo esperando que vuelvan a ser grandes."
+				"name": "Auto de F1",
+				"description": "Una obsesión que se convirtió en rasgo de personalidad. Las penas del Weeyums y el hopium de Ferrari son reales (lo sabes si lo sabes)."
 			}
 		}
 	},
