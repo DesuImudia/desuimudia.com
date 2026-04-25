@@ -670,7 +670,7 @@
   position: absolute;
   background: none;
   border: none;
-  cursor: default;
+  cursor: grab;
   padding: 0;
   line-height: 1;
   --r: 0deg;
@@ -695,6 +695,14 @@
 .fridge-magnet-active {
   transform: rotate(var(--r)) scale(1.2) !important;
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.32)) !important;
+}
+
+.fridge-magnet-dragging {
+  cursor: grabbing !important;
+  transform: rotate(var(--r)) scale(1.15) !important;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35)) !important;
+  transition: none !important;
+  z-index: 10 !important;
 }
 
 /* Image magnet sizes — scaled for dense door coverage */

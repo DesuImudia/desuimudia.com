@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { magnets, insideItems } from "~/data/fridge"
-import type { FridgeMagnet, FridgeItem } from "~/data/fridge"
-import { workHistory, education } from "~/data/experience"
-import { profile } from "~/data/profile"
 import desuPhoto1 from "~/assets/desuimudia-1.png"
 import desuPhoto2 from "~/assets/desuimudia-2.png"
 import desuPhotoExperience from "~/assets/desuimudia.png"
+import { workHistory, education } from "~/data/experience"
+import type { FridgeMagnet, FridgeItem } from "~/data/fridge"
+import { magnets, insideItems } from "~/data/fridge"
+import { profile } from "~/data/profile"
 import { useScrollReveal, useWaterfallReveal } from "~/hooks/useScrollReveal"
 
 export function links() {
@@ -62,6 +62,18 @@ const ITEM_IMAGES: Record<string, string> = {
 const FRIDGE_INSIDE_DOOR = "/fridge/fridge-inside-door-open.webp"
 const FRIDGE_OPEN        = "/fridge/fridge-open.webp"
 
+type MagnetPos = { top: string; left: string }
+
+type DragState = {
+	id: string
+	container: DOMRect
+	pointerOffsetX: number
+	pointerOffsetY: number
+	startPointerX: number
+	startPointerY: number
+	moved: boolean
+}
+
 export default function Home() {
 	const { t } = useTranslation()
 	const [activeMagnet, setActiveMagnet]   = useState<FridgeMagnet | null>(null)
@@ -70,6 +82,9 @@ export default function Home() {
 	const [panelReady, setPanelReady]       = useState(false)
 	const isPanelOpen = activeMagnet !== null || (fridgeOpen && activeItem !== null)
 	const [activePhoto, setActivePhoto] = useState(0)
+	const [magnetPositions, setMagnetPositions] = useState<Record<string, MagnetPos>>({})
+	const [draggingId, setDraggingId] = useState<string | null>(null)
+	const dragState = useRef<DragState | null>(null)
 
 	useEffect(() => {
 		const interval = setInterval(() => setActivePhoto((p) => (p === 0 ? 1 : 0)), 1000)
@@ -86,15 +101,58 @@ export default function Home() {
 		return () => clearTimeout(t)
 	}, [isPanelOpen])
 
-	const handleMagnetClick = (e: React.MouseEvent, magnet: FridgeMagnet) => {
+	const handleMagnetPointerDown = (e: React.PointerEvent, magnet: FridgeMagnet) => {
 		e.stopPropagation()
-		if (!magnet.hasPanel) return
-		if (activeMagnet?.id === magnet.id) {
-			setActiveMagnet(null)
-		} else {
-			setActiveMagnet(magnet)
-			setFridgeOpen(false)
-			setActiveItem(null)
+		const btn = e.currentTarget as HTMLElement
+		const container = btn.parentElement?.getBoundingClientRect()
+		if (!container) return
+		const btnRect = btn.getBoundingClientRect()
+		dragState.current = {
+			id: magnet.id,
+			container,
+			pointerOffsetX: e.clientX - btnRect.left,
+			pointerOffsetY: e.clientY - btnRect.top,
+			startPointerX: e.clientX,
+			startPointerY: e.clientY,
+			moved: false,
+		}
+		btn.setPointerCapture(e.pointerId)
+	}
+
+	const handleMagnetPointerMove = (e: React.PointerEvent, magnet: FridgeMagnet) => {
+		const d = dragState.current
+		if (!d || d.id !== magnet.id) return
+		const dx = Math.abs(e.clientX - d.startPointerX)
+		const dy = Math.abs(e.clientY - d.startPointerY)
+		if (dx > 4 || dy > 4) d.moved = true
+		if (!d.moved) return
+		if (!draggingId) setDraggingId(magnet.id)
+		const newLeft = ((e.clientX - d.pointerOffsetX - d.container.left) / d.container.width) * 100
+		const newTop  = ((e.clientY - d.pointerOffsetY - d.container.top)  / d.container.height) * 100
+		setMagnetPositions((prev) => ({
+			...prev,
+			[magnet.id]: {
+				left: `${Math.max(0, Math.min(95, newLeft)).toFixed(1)}%`,
+				top:  `${Math.max(0, Math.min(95, newTop)).toFixed(1)}%`,
+			},
+		}))
+	}
+
+	const handleMagnetPointerUp = (e: React.PointerEvent, magnet: FridgeMagnet) => {
+		e.stopPropagation()
+		const d = dragState.current
+		if (!d || d.id !== magnet.id) return
+		const moved = d.moved
+		dragState.current = null
+		setDraggingId(null)
+		if (!moved && magnet.hasPanel) {
+			if (activeMagnet?.id === magnet.id) {
+				setActiveMagnet(null)
+			} else {
+				setActiveMagnet(magnet)
+				setFridgeOpen(false)
+				setActiveItem(null)
+			}
 		}
 	}
 
@@ -153,8 +211,12 @@ export default function Home() {
 							<Magnets
 								magnets={topMagnets}
 								activeMagnet={activeMagnet}
+								draggingId={draggingId}
 								magnetImages={MAGNET_IMAGES}
-								onMagnetClick={handleMagnetClick}
+								magnetPositions={magnetPositions}
+								onPointerDown={handleMagnetPointerDown}
+								onPointerMove={handleMagnetPointerMove}
+								onPointerUp={handleMagnetPointerUp}
 							/>
 						</div>
 
@@ -182,8 +244,12 @@ export default function Home() {
 									<Magnets
 										magnets={doorMagnets}
 										activeMagnet={activeMagnet}
+										draggingId={draggingId}
 										magnetImages={MAGNET_IMAGES}
-										onMagnetClick={handleMagnetClick}
+										magnetPositions={magnetPositions}
+										onPointerDown={handleMagnetPointerDown}
+										onPointerMove={handleMagnetPointerMove}
+										onPointerUp={handleMagnetPointerUp}
 									/>
 								</div>
 								<div className="fridge-door-face fridge-door-back">
@@ -333,39 +399,55 @@ function CopyEmail() {
 function Magnets({
 	magnets: items,
 	activeMagnet,
+	draggingId,
 	magnetImages,
-	onMagnetClick,
+	magnetPositions,
+	onPointerDown,
+	onPointerMove,
+	onPointerUp,
 }: {
 	magnets: FridgeMagnet[]
 	activeMagnet: FridgeMagnet | null
+	draggingId: string | null
 	magnetImages: Record<string, string>
-	onMagnetClick: (e: React.MouseEvent, m: FridgeMagnet) => void
+	magnetPositions: Record<string, MagnetPos>
+	onPointerDown: (e: React.PointerEvent, m: FridgeMagnet) => void
+	onPointerMove: (e: React.PointerEvent, m: FridgeMagnet) => void
+	onPointerUp: (e: React.PointerEvent, m: FridgeMagnet) => void
 }) {
 	return (
 		<>
-			{items.map((magnet) => (
-				<button
-					key={magnet.id}
-					type="button"
-					className={[
-						"fridge-magnet-btn",
-						`fridge-magnet-${magnet.size}`,
-						magnet.hasPanel ? "fridge-magnet-clickable" : "",
-						activeMagnet?.id === magnet.id ? "fridge-magnet-active" : "",
-					].join(" ")}
-					style={{
-						top: magnet.position.top,
-						left: magnet.position.left,
-						"--r": `${magnet.rotate ?? 0}deg`,
-					} as React.CSSProperties}
-					onClick={(e) => onMagnetClick(e, magnet)}
-					aria-label={magnet.title}
-				>
-					{magnetImages[magnet.id] && (
-						<img src={magnetImages[magnet.id]} alt={magnet.title} className="fridge-magnet-img" draggable={false} />
-					)}
-				</button>
-			))}
+			{items.map((magnet) => {
+				const pos = magnetPositions[magnet.id] ?? magnet.position
+				const isDragging = draggingId === magnet.id
+				return (
+					<button
+						key={magnet.id}
+						type="button"
+						className={[
+							"fridge-magnet-btn",
+							`fridge-magnet-${magnet.size}`,
+							magnet.hasPanel ? "fridge-magnet-clickable" : "",
+							activeMagnet?.id === magnet.id ? "fridge-magnet-active" : "",
+							isDragging ? "fridge-magnet-dragging" : "",
+						].join(" ")}
+						style={{
+							top: pos.top,
+							left: pos.left,
+							"--r": `${magnet.rotate ?? 0}deg`,
+						} as React.CSSProperties}
+						onPointerDown={(e) => onPointerDown(e, magnet)}
+						onPointerMove={(e) => onPointerMove(e, magnet)}
+						onPointerUp={(e) => onPointerUp(e, magnet)}
+						onClick={(e) => e.stopPropagation()}
+						aria-label={magnet.title}
+					>
+						{magnetImages[magnet.id] && (
+							<img src={magnetImages[magnet.id]} alt={magnet.title} className="fridge-magnet-img" draggable={false} />
+						)}
+					</button>
+				)
+			})}
 		</>
 	)
 }

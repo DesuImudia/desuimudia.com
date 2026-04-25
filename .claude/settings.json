@@ -19,7 +19,8 @@
       "Bash(gh pr create --title 'Fix dark mode navbar and add manual deploy trigger' --body ' *)",
       "Bash(npm install *)",
       "Bash(pnpm add *)",
-      "Bash(sort -k5 -hr)"
+      "Bash(sort -k5 -hr)",
+      "Bash(pnpm tsc *)"
     ],
     "additionalDirectories": [
       "/tmp",
